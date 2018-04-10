@@ -16,6 +16,7 @@ public class WeatherService {
     public String getWeatherByCity(String city) throws Exception {
         String url = outWeatherUrl + city;
         String result = HttpUtils.get(url);
+
         return  result;
     }
 }

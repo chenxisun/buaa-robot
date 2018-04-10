@@ -14,6 +14,7 @@ public class TranslateService {
     public String getChinese(String word) throws Exception {
         String url = outTranslateUrl + word;
         String result = HttpUtils.get(url);
+
         return  result;
     }
 }
