@@ -1,0 +1,30 @@
+server:
+  port: 8089
+  tomcat:
+    max-http-post-size: 600
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    tomcat:
+      max-idle: 10
+      max-active: 40
+      max-wait: 10000
+      test-while-idle: true
+      test-on-borrow: true
+      validation-query: select 1 from dual
+  jpa:
+    open-in-view: true
+    properties:
+      hibernate.enable_lazy_load_no_trans: true
+    show-sql: true
+  http:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+
+rest:
+  connection.connectionRequestTimeout: 200
+  connection.connectTimeout: 5000
+  connection.socketTimeout: 15000
