@@ -92,13 +92,6 @@
 		</dependency>
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<id>public</id>
-			<url>http://maven.intra.xiaojukeji.com/nexus/content/groups/public/</url>
-		</repository>
-	</repositories>
-
 	<build>
 		<plugins>
 			<plugin>
