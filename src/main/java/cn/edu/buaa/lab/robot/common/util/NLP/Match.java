@@ -1,15 +1,10 @@
-package cn.edu.buaa.lab.robot.service;
+package cn.edu.buaa.lab.robot.common.util.NLP;
 
-import cn.edu.buaa.lab.robot.common.util.NLPUtils;
 import cn.edu.buaa.lab.robot.common.util.Pair;
-import cn.edu.buaa.lab.robot.model.WordModel;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-public class MatchService {
+public class Match {
 
     public Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
     {
@@ -23,13 +18,13 @@ public class MatchService {
                 if (!mii.containsKey(aaiAnswer.get(i).get(j)))
                 {
                     mii.put(aaiAnswer.get(i).get(j), 1);
-                    mif.put(aaiAnswer.get(i).get(j), 1.0f/ WordModel.aiCountSet.get(aaiAnswer.get(i).get(j)-1));
+                    mif.put(aaiAnswer.get(i).get(j), 1.0f/ Word.aiCountSet.get(aaiAnswer.get(i).get(j)-1));
                 }
                 else
                 {
                     mii.put(aaiAnswer.get(i).get(j), mii.get(aaiAnswer.get(i).get(j))+1);
                     mif.put(aaiAnswer.get(i).get(j),
-                            mif.get(aaiAnswer.get(i).get(j))+1.0f/ WordModel.aiCountSet.get(aaiAnswer.get(i).get(j)-1));
+                            mif.get(aaiAnswer.get(i).get(j))+1.0f/ Word.aiCountSet.get(aaiAnswer.get(i).get(j)-1));
                 }
             }
         }
@@ -92,19 +87,21 @@ public class MatchService {
                     break;
             }
         }
+        if (i_question+i_song+i_story+i_english == 0)
+            return Status.LOW_MATCH;
         if(i_question > i_song && i_question > i_story && i_question > i_english)
-            return StatusService.RECOMMEND_QUESTION;
+            return Status.RECOMMEND_QUESTION;
         if (i_song >= i_story && i_song >= i_english)
-            return StatusService.RECOMMEND_SONG;
+            return Status.RECOMMEND_SONG;
         if (i_english>=i_story)
-            return StatusService.RECOMMEND_ENGLISH;
-        return StatusService.RECOMMEND_STORY;
+            return Status.RECOMMEND_ENGLISH;
+        return Status.RECOMMEND_STORY;
     }
 
     public int Beibei()
     {
         //Log l = Log();
-        String testLine = StatusService.input;
+        String testLine = Status.input;
 
         ArrayList<String> xiao = new ArrayList<String>();
         xiao.add("贝");
@@ -144,19 +141,19 @@ public class MatchService {
         }
         if (flag)
         {
-            StatusService.isSleep = false;
-            StatusService.input = "";
+            Status.isSleep = false;
+            Status.input = "";
             //l.WriteLog("#唤醒贝贝");
-            return StatusService.WAKE;
+            return Status.WAKE;
         }
-        StatusService.input = "";
+        Status.input = "";
         return -1;
     }
 
     public int sleep()
     {
         //Log l = Log();
-        String testLine = StatusService.input;
+        String testLine = Status.input;
 
         String s_sleep = "你去睡觉";
 
@@ -174,11 +171,11 @@ public class MatchService {
         }
         if (flag)
         {
-            StatusService.isSleep = true;
+            Status.isSleep = true;
             //l.WriteLog("#贝贝睡觉了");
-            StatusService.input = "";
-            //StatusService.notMatchTime = 3;
-            return StatusService.SLEEP;
+            Status.input = "";
+            //Status.notMatchTime = 3;
+            return Status.SLEEP;
         }
         return -1;
     }
@@ -192,14 +189,14 @@ public class MatchService {
         bu.add("布");
         bu.add("换");
 
-        int length1 = StatusService.input.length();
+        int length1 = Status.input.length();
         int length2 = bu.size();
         boolean no = false;
         for(int i = 0; i < length1; i++)
         {
             for(int j = 0; j < length2; j++)
             {
-                if (StatusService.input.charAt(i) == bu.get(i).charAt(0))
+                if (Status.input.charAt(i) == bu.get(i).charAt(0))
                 {
                     no = true;
                     break;
@@ -213,7 +210,7 @@ public class MatchService {
 
     public boolean isSilence()
     {
-        if (StatusService.input.length() == 0)//判断是否有结果（即是否有语音输入）
+        if (Status.input.length() == 0)//判断是否有结果（即是否有语音输入）
             return true;
         return false;
     }
@@ -221,54 +218,54 @@ public class MatchService {
     public boolean weather()
     {
         boolean f_weather = false;
-        for (int i = 0; i < StatusService.input.length()-1; i++)
+        for (int i = 0; i < Status.input.length()-1; i++)
         {
-            String tmp = StatusService.input.substring(i,i+2);
-            if (WordModel.asWeatherAsk.contains(tmp))
+            String tmp = Status.input.substring(i,i+2);
+            if (Word.asWeatherAsk.contains(tmp))
                 f_weather = true;
         }
         if (!f_weather)
             return false;
 
-        String city = StatusService.weather_city;//当前城市
+        String city = Status.weather_city;//当前城市
 
-        for (int i = 0; i < StatusService.input.length()-1; i++)
+        for (int i = 0; i < Status.input.length()-1; i++)
         {
-            String tmp = StatusService.input.substring(i,i+2);
-            for (int j = 0; j < WordModel.asWeatherTime.size(); j++)
+            String tmp = Status.input.substring(i,i+2);
+            for (int j = 0; j < Word.asWeatherTime.size(); j++)
             {
-                if (WordModel.asWeatherTime.get(j).equals(tmp))
+                if (Word.asWeatherTime.get(j).equals(tmp))
                 {
                     switch(j)
                     {
                         case 0:
-                            StatusService.weather_time = -2;
+                            Status.weather_time = -2;
                             break;
                         case 1:
-                            StatusService.weather_time = -1;
+                            Status.weather_time = -1;
                             break;
                         case 2:
                         case 3:
-                            StatusService.weather_time = 0;
+                            Status.weather_time = 0;
                             break;
                         case 4:
-                            StatusService.weather_time = 1;
+                            Status.weather_time = 1;
                             break;
                         case 5:
-                            StatusService.weather_time = 2;
+                            Status.weather_time = 2;
                             break;
                     }
                     break;
                 }
             }
         }
-        for (int i = 0; i < StatusService.input.length(); i++)
+        for (int i = 0; i < Status.input.length(); i++)
         {
             for (int l = 2; l < 5; l++)
             {
-                int b = Math.min(i+l, StatusService.input.length());
-                String tmp = StatusService.input.substring(i,b);
-                if (WordModel.asWeatherCity.contains(tmp))
+                int b = Math.min(i+l, Status.input.length());
+                String tmp = Status.input.substring(i,b);
+                if (Word.asWeatherCity.contains(tmp))
                 {
                     city=tmp;
                     break;
@@ -276,7 +273,7 @@ public class MatchService {
             }
         }
 
-        if(StatusService.weather_time==-3)
+        if(Status.weather_time==-3)
             return false;
         //System.out.println(city+time);
         return true;
@@ -287,44 +284,46 @@ public class MatchService {
         return false;
     }
 
-    public int isIntegrity(int type)
+    public int match()
     {
-        //进行匹配
-        SplitWordsService sw = new SplitWordsService();
+        int type = Status.LOW_MATCH;
+        SplitWords sw = new SplitWords();
         Pair<Integer,Float> p;
-        int answer = StatusService.LOW_MATCH;
         ArrayList<ArrayList<Integer>> result1 = new ArrayList<ArrayList<Integer>>();//歌、故事
         ArrayList<ArrayList<Integer>> result2 = new ArrayList<ArrayList<Integer>>();//问题
 
-        ArrayList<ArrayList<Integer>> typeResult = sw.GetSplitResult(StatusService.input, WordModel.asTypeSet, WordModel.aaiTypeIndex);//计算type
+        ArrayList<ArrayList<Integer>> typeResult = sw.GetSplitResult(Status.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
         if (typeResult.size() != 0)//可能含有类型
             type = TypeInference(typeResult);//区分是歌还是故事或问题或英语
-        if (type == StatusService.RECOMMEND_SONG)//匹配歌
-            result1 = sw.GetSplitResult(StatusService.input, WordModel.asSongSet, WordModel.aaiSongIndex);
-        else if(type == StatusService.RECOMMEND_STORY)//匹配故事
-            result1 = sw.GetSplitResult(StatusService.input, WordModel.asStorySet, WordModel.aaiStoryIndex);
-        else if (type == StatusService.RECOMMEND_ENGLISH)
-            return StatusService.RECOMMEND_ENGLISH;
 
-        result2 = sw.GetSplitResult(StatusService.input, WordModel.asQuestionSet, WordModel.aaiQuestionIndex);
+        if (type == Status.RECOMMEND_SONG)//匹配歌
+            result1 = sw.GetSplitResult(Status.input, Word.asSongSet, Word.aaiSongIndex);
+        else if(type == Status.RECOMMEND_STORY)//匹配故事
+            result1 = sw.GetSplitResult(Status.input, Word.asStorySet, Word.aaiStoryIndex);
+        else if (type == Status.RECOMMEND_ENGLISH)
+            return Status.RECOMMEND_ENGLISH;
+//        else if (type == Status.LOW_MATCH)
+//            type = Status.RECOMMEND_QUESTION;
 
-        if (result1.size() == 0 && result2.size() == 0 && type == 0)//什么都不匹配，噪音
-            return StatusService.LOW_MATCH;
-        else if (type <= 1)//匹配问题
+        result2 = sw.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
+
+        if (result1.size() == 0 && result2.size() == 0)//什么都不匹配，噪音
+            return Status.LOW_MATCH;
+        else if (type == Status.RECOMMEND_QUESTION)//匹配问题
         {
             p = GetAnswerIndex(result2);
-            if (type == 0 && p.getValue() < StatusService.match_per)//没有关键词且，匹配率不足0.8
-            {
-                //StatusService.lowMatchTime++;
-                answer = StatusService.LOW_MATCH;
-            }
-            else if (type == 1 && p.getValue() + 0.1 < StatusService.match_per)//出现关键词但匹配率不足0.5
-            {
-                answer = StatusService.RECOMMEND;
-                StatusService.recommend = StatusService.RECOMMEND_QUESTION;
-            }
+            if (p.getValue() + 0.1 < Status.match_per)
+                return Status.RECOMMEND_QUESTION;
             else
-                answer = p.getKey();
+                return p.getKey();
+        }
+        else if (type == Status.LOW_MATCH)
+        {
+            p = GetAnswerIndex(result2);
+            if (p.getValue() < Status.match_per)
+                return Status.LOW_MATCH;
+            else
+                return p.getKey();
         }
         else
         {
@@ -335,18 +334,11 @@ public class MatchService {
             else
                 p = p2;
 
-            if (p.getValue()+0.31 < StatusService.match_per)//低匹配度，转为推荐
-            {
-                if (type == 2)
-                    StatusService.recommend = StatusService.RECOMMEND_SONG;
-                else
-                    StatusService.recommend = StatusService.RECOMMEND_STORY;
-                answer = StatusService.RECOMMEND;
-            }
+            if (p.getValue()+0.31 < Status.match_per)//低匹配度，转为推荐
+                return type;
             else
-                answer = p.getKey();
+               return p.getKey();
         }
-        return answer;
     }
 
 

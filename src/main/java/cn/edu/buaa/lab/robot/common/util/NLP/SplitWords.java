@@ -1,8 +1,8 @@
-package cn.edu.buaa.lab.robot.service;
+package cn.edu.buaa.lab.robot.common.util.NLP;
 
 import java.util.ArrayList;
 
-public class SplitWordsService {
+public class SplitWords {
     private String RemoveEnglishSymbol(String s)
     {
         String r = "";

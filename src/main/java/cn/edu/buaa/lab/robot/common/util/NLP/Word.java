@@ -1,4 +1,4 @@
-package cn.edu.buaa.lab.robot.model;
+package cn.edu.buaa.lab.robot.common.util.NLP;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class WordModel {
+public class Word {
     public static ArrayList<String> asTypeSet = null;
     public static ArrayList<ArrayList<Integer>> aaiTypeIndex = null;
     public static ArrayList<String> asQuestionSet = null;
