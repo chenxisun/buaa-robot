@@ -1,6 +1,6 @@
-package cn.edu.buaa.lab.robot.service;
+package cn.edu.buaa.lab.robot.common.util.NLP;
 
-public class StatusService {
+public class Status {
     public static boolean isSleep = false;
     //public static boolean isGetResult = false;
     //public static char rsn = '0';
