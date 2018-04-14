@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Match {
 
-    public Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
+    public static Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
     {
         HashMap<Integer, Integer> mii = new HashMap<Integer, Integer>();
         HashMap<Integer, Float> mif = new HashMap<Integer, Float>();
@@ -48,7 +48,7 @@ public class Match {
         return new Pair<Integer,Float>(max_index, max);
     }
 
-    public int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
+    public static int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
     {
         int i_song = 0;
         int i_story = 0;
@@ -98,7 +98,7 @@ public class Match {
         return Status.RECOMMEND_STORY;
     }
 
-    public int Beibei()
+    public static int beibei()
     {
         //Log l = Log();
         String testLine = Status.input;
@@ -150,7 +150,7 @@ public class Match {
         return -1;
     }
 
-    public int sleep()
+    public static int sleep()
     {
         //Log l = Log();
         String testLine = Status.input;
@@ -180,7 +180,7 @@ public class Match {
         return -1;
     }
 
-    public boolean hasNo()
+    public static boolean hasNo()
     {
         ArrayList<String> bu = new ArrayList<String>();
         bu.add("不");
@@ -208,14 +208,14 @@ public class Match {
         return no;
     }
 
-    public boolean isSilence()
+    public static boolean silence()
     {
         if (Status.input.length() == 0)//判断是否有结果（即是否有语音输入）
             return true;
         return false;
     }
 
-    public boolean weather()
+    public static boolean weather()
     {
         boolean f_weather = false;
         for (int i = 0; i < Status.input.length()-1; i++)
@@ -279,12 +279,12 @@ public class Match {
         return true;
     }
 
-    public boolean translate()
+    public static boolean translate()
     {
         return false;
     }
 
-    public int match()
+    public static int match()
     {
         int type = Status.LOW_MATCH;
         SplitWords sw = new SplitWords();
@@ -341,6 +341,38 @@ public class Match {
         }
     }
 
+    public static int getNLPResult()
+    {
+        //判断是否有效
+        if (silence())
+            return Status.SILENCE;
+
+        //判断是否是让去睡觉
+        if(sleep() == Status.SLEEP)
+            return Status.SLEEP;
+
+        //判断是否是唤醒
+        if (beibei() == Status.WAKE)
+            return Status.WAKE;
+
+        //判断是否是让翻译
+        if (translate())
+            return Status.TRANSLATE;
+
+        //判断是否是询问天气
+        if (weather())
+            return Status.WEATHER;
+
+        //判断是否是二次应答
+        if (Status.waitNext)
+            if (hasNo())
+                return Status.NO;
+            else
+                return Status.OK;
+
+        //判断是否是完整匹配
+        return match();
+    }
 
 
 //        public int match()

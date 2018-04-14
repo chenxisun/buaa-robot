@@ -5,7 +5,7 @@ import cn.edu.buaa.lab.robot.common.util.KedaVoiceUtils;
 import java.util.Random;
 
 public class Recommend {
-    public void changeToQuestion() {
+    public static void changeToQuestion() {
         Random random = new Random();
         Status.recommendIndex = Word.question_valid[random.nextInt() % 144];
         String answer_str = Word.mName.get(Status.recommendIndex);
@@ -16,7 +16,7 @@ public class Recommend {
         //地址
     }
 
-    public void changeToSong() {
+    public static void changeToSong() {
         Random random = new Random();
         Status.recommendIndex = random.nextInt() % 100 + 201;
         String answer_str = Word.mName.get(Status.recommendIndex);
@@ -27,7 +27,7 @@ public class Recommend {
         //地址
     }
 
-    public void changeToStory() {
+    public static void changeToStory() {
         Random random = new Random();
         Status.recommendIndex = random.nextInt() % 100 + 301;
         String answer_str = Word.mName.get(Status.recommendIndex);

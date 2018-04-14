@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aaa7a1b1-d689-4f7d-91d3-675eb6284373" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/model/WordModel.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Word.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/MatchService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/RecommendService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/SplitWordsService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/SplitWords.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/StatusService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/SplitWords.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/SplitWords.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,36 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Match.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding>
-                <element signature="method#GetAnswerIndex#0;class#Match#0" expanded="false" />
-                <element signature="e#284#302#0" expanded="true" />
-                <element signature="e#355#371#0" expanded="true" />
-                <element signature="method#TypeInference#0;class#Match#0" expanded="false" />
-                <element signature="method#Beibei#0;class#Match#0" expanded="false" />
-                <element signature="e#3386#3394#0" expanded="true" />
-                <element signature="e#3536#3544#0" expanded="true" />
-                <element signature="method#sleep#0;class#Match#0" expanded="false" />
-                <element signature="method#hasNo#0;class#Match#0" expanded="false" />
-                <element signature="e#5437#5445#0" expanded="true" />
-                <element signature="method#isSilence#0;class#Match#0" expanded="false" />
-                <element signature="method#weather#0;class#Match#0" expanded="false" />
-                <element signature="e#8428#8448#0" expanded="true" />
-                <element signature="e#8519#8539#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Status.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="187">
+              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -59,9 +32,36 @@
       <file leaf-file-name="VoiceService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Match.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1091">
+              <caret line="375" column="0" lean-forward="true" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+              <folding>
+                <element signature="method#GetAnswerIndex#0;class#Match#0" expanded="false" />
+                <element signature="e#291#309#0" expanded="true" />
+                <element signature="e#362#378#0" expanded="true" />
+                <element signature="method#TypeInference#0;class#Match#0" expanded="false" />
+                <element signature="method#beibei#0;class#Match#0" expanded="false" />
+                <element signature="e#3407#3415#0" expanded="true" />
+                <element signature="e#3557#3565#0" expanded="true" />
+                <element signature="method#sleep#0;class#Match#0" expanded="false" />
+                <element signature="method#hasNo#0;class#Match#0" expanded="false" />
+                <element signature="e#5472#5480#0" expanded="true" />
+                <element signature="method#silence#0;class#Match#0" expanded="false" />
+                <element signature="method#weather#0;class#Match#0" expanded="false" />
+                <element signature="method#match#0;class#Match#0" expanded="false" />
+                <element signature="e#8489#8509#0" expanded="true" />
+                <element signature="e#8580#8600#0" expanded="true" />
+                <element signature="e#11135#11163#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,6 +124,10 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/RecommendService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/MatchService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/MatchService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/XfVoiceUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/SplitWords.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java" />
       </list>
@@ -856,6 +860,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -869,7 +874,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26115343" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -925,7 +930,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1144,13 +1149,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/Word.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/Match.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/XfVoiceUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="168" column="0" lean-forward="true" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
@@ -1232,20 +1230,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/XfVoiceUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Word.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
+        <state relative-caret-position="88">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/SplitWords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="440">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
             <element signature="method#GetSplitResult#0;class#SplitWords#0" expanded="false" />
           </folding>
@@ -1254,47 +1258,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="176">
+          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="1091">
+          <caret line="375" column="0" lean-forward="true" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
           <folding>
             <element signature="method#GetAnswerIndex#0;class#Match#0" expanded="false" />
-            <element signature="e#284#302#0" expanded="true" />
-            <element signature="e#355#371#0" expanded="true" />
+            <element signature="e#291#309#0" expanded="true" />
+            <element signature="e#362#378#0" expanded="true" />
             <element signature="method#TypeInference#0;class#Match#0" expanded="false" />
-            <element signature="method#Beibei#0;class#Match#0" expanded="false" />
-            <element signature="e#3386#3394#0" expanded="true" />
-            <element signature="e#3536#3544#0" expanded="true" />
+            <element signature="method#beibei#0;class#Match#0" expanded="false" />
+            <element signature="e#3407#3415#0" expanded="true" />
+            <element signature="e#3557#3565#0" expanded="true" />
             <element signature="method#sleep#0;class#Match#0" expanded="false" />
             <element signature="method#hasNo#0;class#Match#0" expanded="false" />
-            <element signature="e#5437#5445#0" expanded="true" />
-            <element signature="method#isSilence#0;class#Match#0" expanded="false" />
+            <element signature="e#5472#5480#0" expanded="true" />
+            <element signature="method#silence#0;class#Match#0" expanded="false" />
             <element signature="method#weather#0;class#Match#0" expanded="false" />
-            <element signature="e#8428#8448#0" expanded="true" />
-            <element signature="e#8519#8539#0" expanded="true" />
+            <element signature="method#match#0;class#Match#0" expanded="false" />
+            <element signature="e#8489#8509#0" expanded="true" />
+            <element signature="e#8580#8600#0" expanded="true" />
+            <element signature="e#11135#11163#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
