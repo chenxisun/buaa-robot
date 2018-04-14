@@ -17,4 +17,11 @@ public class VoiceController {
     }
 
 
+    @PostMapping()
+    public ResponseEntity<?> list(@PathVariable final String word) throws
+            Exception {
+        String result = "123";
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
 }
