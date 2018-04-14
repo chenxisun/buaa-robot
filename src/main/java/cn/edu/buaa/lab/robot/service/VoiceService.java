@@ -16,7 +16,6 @@ public class VoiceService {
     public int getNLPResult(String input)
     {
         MatchService ms = new MatchService();
-        //Log l = new Log();
 
         //判断是否有效
         if (ms.isSilence())
@@ -31,9 +30,8 @@ public class VoiceService {
             return StatusService.WAKE;
 
         //判断是否是让翻译
-        //TODO:
-        //if (ms.translate())
-        //    return StatusService.TRANSLATE;
+        if (ms.translate())
+            return StatusService.TRANSLATE;
 
         //判断是否是询问天气
         if (ms.weather())
@@ -46,9 +44,8 @@ public class VoiceService {
             else
                 return StatusService.OK;
 
-
-        //StatusService.notMatchTime = 0;
-        int lastType = StatusService.recommend;
+        //判断是否是完整匹配
+        //int lastType = StatusService.recommend;
         int answer = ms.isIntegrity(lastType);
 
         if (answer > 0)//有完整性匹配
@@ -59,53 +56,33 @@ public class VoiceService {
 
         if (answer == StatusService.RECOMMEND)//不完整，但有状态
         {
-            //检测有无状态转变
-            if (lastType == StatusService.recommend)//无状态转变
+
+            RecommendService r = new RecommendService();
+            if(StatusService.recommend == StatusService.RECOMMEND_QUESTION)
             {
-                if (StatusService.waitNext)//检测是否在回答问题
-                {
-                    StatusService.waitNext = false;
-                }
-                else//仍在这个状态中，继续下个随机，（先回答还得想一下）
-                {
-                    //l.WriteLog(tmps,Status.LOW_MATCH_AND_RECOMMEND);
-                    return StatusService.LOW_MATCH_AND_RECOMMEND;
-                }
+                //l.WriteLog(tmps,Status.CHANGE_TO_QUESTION);
+                r.changeToQuestion();
+                return StatusService.CHANGE_TO_QUESTION;
             }
-            else//有状态转变
+            if (StatusService.recommend == StatusService.RECOMMEND_SONG)
             {
-                RecommendService r = new RecommendService();
-                if(StatusService.recommend == StatusService.RECOMMEND_QUESTION)
-                {
-                    //l.WriteLog(tmps,Status.CHANGE_TO_QUESTION);
-                    r.changeToQuestion();
-                    return StatusService.CHANGE_TO_QUESTION;
-                }
-                if (StatusService.recommend == StatusService.RECOMMEND_SONG)
-                {
-                    //l.WriteLog(tmps,Status.CHANGE_TO_SONG);
-                    r.changeToSong();
-                    return StatusService.CHANGE_TO_SONG;
-                }
-                if (StatusService.recommend == StatusService.RECOMMEND_STORY)
-                {
-                    //l.WriteLog(tmps,Status.CHANGE_TO_STORY);
-                    r.changeToStory();
-                    return StatusService.CHANGE_TO_STORY;
-                }
-                if (StatusService.recommend == StatusService.RECOMMEND_ENGLISH)
-                {
-                    //l.WriteLog(tmps,Status.CHANGE_TO_STORY);
-                    return StatusService.CHANGE_TO_ENGLISH;
-                }
+                //l.WriteLog(tmps,Status.CHANGE_TO_SONG);
+                r.changeToSong();
+                return StatusService.CHANGE_TO_SONG;
             }
-        }
-        else if (StatusService.waitNext)//不完整，且无状态 //检测是否在回答问题
-        {
-            StatusService.waitNext = false;
+            if (StatusService.recommend == StatusService.RECOMMEND_STORY)
+            {
+                //l.WriteLog(tmps,Status.CHANGE_TO_STORY);
+                r.changeToStory();
+                return StatusService.CHANGE_TO_STORY;
+            }
+            if (StatusService.recommend == StatusService.RECOMMEND_ENGLISH)
+            {
+                //l.WriteLog(tmps,Status.CHANGE_TO_STORY);
+                return StatusService.CHANGE_TO_ENGLISH;
+            }
         }
 
-        //l.WriteLog(tmps,Status.LOW_MATCH);
         return StatusService.LOW_MATCH;
     }
 

@@ -53,7 +53,7 @@ public class MatchService {
         return new Pair<Integer,Float>(max_index, max);
     }
 
-    public int SongOrStory(ArrayList<ArrayList<Integer>> typeResult)
+    public int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
     {
         int i_song = 0;
         int i_story = 0;
@@ -93,12 +93,12 @@ public class MatchService {
             }
         }
         if(i_question > i_song && i_question > i_story && i_question > i_english)
-            return 1;
+            return StatusService.RECOMMEND_QUESTION;
         if (i_song >= i_story && i_song >= i_english)
-            return 2;
+            return StatusService.RECOMMEND_SONG;
         if (i_english>=i_story)
-            return 4;
-        return 3;
+            return StatusService.RECOMMEND_ENGLISH;
+        return StatusService.RECOMMEND_STORY;
     }
 
     public int Beibei()
@@ -282,35 +282,34 @@ public class MatchService {
         return true;
     }
 
+    public boolean translate()
+    {
+        return false;
+    }
+
     public int isIntegrity(int type)
     {
         //进行匹配
         SplitWordsService sw = new SplitWordsService();
         Pair<Integer,Float> p;
         int answer = StatusService.LOW_MATCH;
-        ArrayList<ArrayList<Integer>> result1 = new ArrayList<ArrayList<Integer>>();//歌故事
+        ArrayList<ArrayList<Integer>> result1 = new ArrayList<ArrayList<Integer>>();//歌、故事
         ArrayList<ArrayList<Integer>> result2 = new ArrayList<ArrayList<Integer>>();//问题
 
         ArrayList<ArrayList<Integer>> typeResult = sw.GetSplitResult(StatusService.input, WordModel.asTypeSet, WordModel.aaiTypeIndex);//计算type
-        if (typeResult.size() != 0)//归结为歌或故事或问题
-            type = SongOrStory(typeResult);//区分是歌还是故事或问题
-
-        if (type == 2)//匹配歌
+        if (typeResult.size() != 0)//可能含有类型
+            type = TypeInference(typeResult);//区分是歌还是故事或问题或英语
+        if (type == StatusService.RECOMMEND_SONG)//匹配歌
             result1 = sw.GetSplitResult(StatusService.input, WordModel.asSongSet, WordModel.aaiSongIndex);
-        else if(type == 3)//匹配故事
+        else if(type == StatusService.RECOMMEND_STORY)//匹配故事
             result1 = sw.GetSplitResult(StatusService.input, WordModel.asStorySet, WordModel.aaiStoryIndex);
-        else if (type == 4)
-        {
-            StatusService.recommend = StatusService.CHANGE_TO_ENGLISH;
-            return StatusService.recommend;
-        }
+        else if (type == StatusService.RECOMMEND_ENGLISH)
+            return StatusService.RECOMMEND_ENGLISH;
+
         result2 = sw.GetSplitResult(StatusService.input, WordModel.asQuestionSet, WordModel.aaiQuestionIndex);
 
         if (result1.size() == 0 && result2.size() == 0 && type == 0)//什么都不匹配，噪音
-        {
-            //StatusService.lowMatchTime++;
-            answer = StatusService.LOW_MATCH;
-        }
+            return StatusService.LOW_MATCH;
         else if (type <= 1)//匹配问题
         {
             p = GetAnswerIndex(result2);
