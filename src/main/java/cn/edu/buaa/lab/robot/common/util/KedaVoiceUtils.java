@@ -13,10 +13,9 @@ import com.iflytek.cloud.speech.SynthesizerListener;
 
 import java.util.ArrayList;
 
-
 public class KedaVoiceUtils {
 
-    private SynthesizerListener mSynListener = new SynthesizerListener(){
+    private static SynthesizerListener mSynListener = new SynthesizerListener(){
         //会话结束回调接口，没有错误时，error为null
         public void onCompleted(SpeechError error) {}
         //缓冲进度回调
@@ -37,7 +36,7 @@ public class KedaVoiceUtils {
         }
     };
 
-    private SynthesizeToUriListener synthesizeToUriListener = new SynthesizeToUriListener() {
+    private static SynthesizeToUriListener synthesizeToUriListener = new SynthesizeToUriListener() {
         //progress为合成进度0~100
         public void onBufferProgress(int progress) {}
         //会话合成完成回调接口
@@ -50,7 +49,7 @@ public class KedaVoiceUtils {
         }
     };
 
-    private RecognizerListener mRecoListener = new RecognizerListener() {
+    private static RecognizerListener mRecoListener = new RecognizerListener() {
         //听写结果回调接口(返回Json格式结果，用户可参见附录)；
         //一般情况下会通过onResults接口多次返回结果，完整的识别内容是多次结果的累加；
         //关于解析Json的代码可参见MscDemo中JsonParser类；
@@ -73,7 +72,7 @@ public class KedaVoiceUtils {
 
     };
 
-    private void uploadUserWords() {
+    private static void uploadUserWords() {
         SpeechUtility.createUtility(SpeechConstant.APPID +"=59cb691f");
         SpeechRecognizer recognizer = SpeechRecognizer.getRecognizer();
 //		UserWords userwords = new UserWords(USER_WORDS);
@@ -81,7 +80,7 @@ public class KedaVoiceUtils {
 //		recognizer.updateLexicon("userwords", userwords.toString(), lexiconListener);
     }
 
-    public void generateAndPlay()
+    public static void generateAndPlay(String input)
     {
         SpeechUtility.createUtility(SpeechConstant.APPID +"=59cb691f");
         //1.创建SpeechSynthesizer对象
@@ -94,11 +93,10 @@ public class KedaVoiceUtils {
         //如果不需要保存合成音频，注释该行代码
         mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, "./tts_test.pcm");
         //3.开始合成
-        mTts.startSpeaking("语音合成测试程序", mSynListener);
-
+        mTts.startSpeaking(input, mSynListener);
     }
 
-    public void generateAndSave()
+    public static void generateAndSave()
     {
         SpeechUtility.createUtility(SpeechConstant.APPID +"=59cb691f");
         //1.创建SpeechSynthesizer对象
@@ -113,7 +111,7 @@ public class KedaVoiceUtils {
         mTts.synthesizeToUri("语音合成测试程序", "./tts_test.pcm",synthesizeToUriListener);
     }
 
-    public void generateAndSave(String content, String path)
+    public static void generateAndSave(String content, String path)
     {
         SpeechUtility.createUtility(SpeechConstant.APPID +"=59cb691f");
         //1.创建SpeechSynthesizer对象
@@ -128,7 +126,7 @@ public class KedaVoiceUtils {
         mTts.synthesizeToUri(content, path,synthesizeToUriListener);
     }
 
-    public void dictationByMicrophone()
+    public static void dictationByMicrophone()
     {
         SpeechUtility.createUtility(SpeechConstant.APPID +"=59cb691f");
         //1.创建SpeechRecognizer对象
@@ -142,7 +140,7 @@ public class KedaVoiceUtils {
         //听写监听器
     }
 
-    public void dictationByFile()
+    public static void dictationByFile()
     {
         SpeechUtility.createUtility(SpeechConstant.APPID +"=59cb691f");
         //1.创建SpeechRecognizer对象
@@ -164,7 +162,7 @@ public class KedaVoiceUtils {
 //		mIat.stopListening();
     }
 
-    public LexiconListener lexiconListener = new LexiconListener() {
+    public static LexiconListener lexiconListener = new LexiconListener() {
         @Override
         public void onLexiconUpdated(String lexiconId, SpeechError error) {
 //			if (error == null)

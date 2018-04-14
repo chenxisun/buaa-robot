@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Match {
 
-    public static Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
+    private static Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
     {
         HashMap<Integer, Integer> mii = new HashMap<Integer, Integer>();
         HashMap<Integer, Float> mif = new HashMap<Integer, Float>();
@@ -48,7 +48,7 @@ public class Match {
         return new Pair<Integer,Float>(max_index, max);
     }
 
-    public static int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
+    private static int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
     {
         int i_song = 0;
         int i_story = 0;
@@ -227,7 +227,7 @@ public class Match {
         if (!f_weather)
             return false;
 
-        String city = Status.weather_city;//当前城市
+        Status.weather_city = "";//当前城市
 
         for (int i = 0; i < Status.input.length()-1; i++)
         {
@@ -267,7 +267,7 @@ public class Match {
                 String tmp = Status.input.substring(i,b);
                 if (Word.asWeatherCity.contains(tmp))
                 {
-                    city=tmp;
+                    Status.weather_city=tmp;
                     break;
                 }
             }
@@ -275,7 +275,7 @@ public class Match {
 
         if(Status.weather_time==-3)
             return false;
-        //System.out.println(city+time);
+        System.out.println(Status.weather_city+Status.weather_time);
         return true;
     }
 
@@ -287,25 +287,24 @@ public class Match {
     public static int match()
     {
         int type = Status.LOW_MATCH;
-        SplitWords sw = new SplitWords();
         Pair<Integer,Float> p;
         ArrayList<ArrayList<Integer>> result1 = new ArrayList<ArrayList<Integer>>();//歌、故事
         ArrayList<ArrayList<Integer>> result2 = new ArrayList<ArrayList<Integer>>();//问题
 
-        ArrayList<ArrayList<Integer>> typeResult = sw.GetSplitResult(Status.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
+        ArrayList<ArrayList<Integer>> typeResult = SplitWords.GetSplitResult(Status.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
         if (typeResult.size() != 0)//可能含有类型
             type = TypeInference(typeResult);//区分是歌还是故事或问题或英语
 
         if (type == Status.RECOMMEND_SONG)//匹配歌
-            result1 = sw.GetSplitResult(Status.input, Word.asSongSet, Word.aaiSongIndex);
+            result1 = SplitWords.GetSplitResult(Status.input, Word.asSongSet, Word.aaiSongIndex);
         else if(type == Status.RECOMMEND_STORY)//匹配故事
-            result1 = sw.GetSplitResult(Status.input, Word.asStorySet, Word.aaiStoryIndex);
+            result1 = SplitWords.GetSplitResult(Status.input, Word.asStorySet, Word.aaiStoryIndex);
         else if (type == Status.RECOMMEND_ENGLISH)
             return Status.RECOMMEND_ENGLISH;
 //        else if (type == Status.LOW_MATCH)
 //            type = Status.RECOMMEND_QUESTION;
 
-        result2 = sw.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
+        result2 = SplitWords.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
 
         if (result1.size() == 0 && result2.size() == 0)//什么都不匹配，噪音
             return Status.LOW_MATCH;
