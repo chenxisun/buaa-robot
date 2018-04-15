@@ -3,7 +3,7 @@ package cn.edu.buaa.lab.robot.common.util.NLP;
 import java.util.ArrayList;
 
 public class SplitWords {
-    private String RemoveEnglishSymbol(String s)
+    private static String RemoveEnglishSymbol(String s)
     {
         String r = "";
         for (int i = 0; i < s.length(); i++)
@@ -18,7 +18,7 @@ public class SplitWords {
         return r;
     }
 
-    public ArrayList<ArrayList<Integer>> GetSplitResult(String sInputLine, ArrayList<String> asSet, ArrayList<ArrayList<Integer>> aaiIndex)
+    public static ArrayList<ArrayList<Integer>> GetSplitResult(String sInputLine, ArrayList<String> asSet, ArrayList<ArrayList<Integer>> aaiIndex)
     {
         sInputLine = RemoveEnglishSymbol(sInputLine);//去掉数字
 

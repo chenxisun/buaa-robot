@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Match {
 
-    public Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
+    private static Pair<Integer, Float> GetAnswerIndex(ArrayList<ArrayList<Integer>> aaiAnswer)
     {
         HashMap<Integer, Integer> mii = new HashMap<Integer, Integer>();
         HashMap<Integer, Float> mif = new HashMap<Integer, Float>();
@@ -48,7 +48,7 @@ public class Match {
         return new Pair<Integer,Float>(max_index, max);
     }
 
-    public int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
+    private static int TypeInference(ArrayList<ArrayList<Integer>> typeResult)
     {
         int i_song = 0;
         int i_story = 0;
@@ -98,7 +98,7 @@ public class Match {
         return Status.RECOMMEND_STORY;
     }
 
-    public int Beibei()
+    public static int beibei()
     {
         //Log l = Log();
         String testLine = Status.input;
@@ -150,7 +150,7 @@ public class Match {
         return -1;
     }
 
-    public int sleep()
+    public static int sleep()
     {
         //Log l = Log();
         String testLine = Status.input;
@@ -180,7 +180,7 @@ public class Match {
         return -1;
     }
 
-    public boolean hasNo()
+    public static boolean hasNo()
     {
         ArrayList<String> bu = new ArrayList<String>();
         bu.add("不");
@@ -208,14 +208,14 @@ public class Match {
         return no;
     }
 
-    public boolean isSilence()
+    public static boolean silence()
     {
         if (Status.input.length() == 0)//判断是否有结果（即是否有语音输入）
             return true;
         return false;
     }
 
-    public boolean weather()
+    public static boolean weather()
     {
         boolean f_weather = false;
         for (int i = 0; i < Status.input.length()-1; i++)
@@ -227,7 +227,7 @@ public class Match {
         if (!f_weather)
             return false;
 
-        String city = Status.weather_city;//当前城市
+        Status.weather_city = "";//当前城市
 
         for (int i = 0; i < Status.input.length()-1; i++)
         {
@@ -267,7 +267,7 @@ public class Match {
                 String tmp = Status.input.substring(i,b);
                 if (Word.asWeatherCity.contains(tmp))
                 {
-                    city=tmp;
+                    Status.weather_city=tmp;
                     break;
                 }
             }
@@ -275,37 +275,36 @@ public class Match {
 
         if(Status.weather_time==-3)
             return false;
-        //System.out.println(city+time);
+        System.out.println(Status.weather_city+Status.weather_time);
         return true;
     }
 
-    public boolean translate()
+    public static boolean translate()
     {
         return false;
     }
 
-    public int match()
+    public static int match()
     {
         int type = Status.LOW_MATCH;
-        SplitWords sw = new SplitWords();
         Pair<Integer,Float> p;
         ArrayList<ArrayList<Integer>> result1 = new ArrayList<ArrayList<Integer>>();//歌、故事
         ArrayList<ArrayList<Integer>> result2 = new ArrayList<ArrayList<Integer>>();//问题
 
-        ArrayList<ArrayList<Integer>> typeResult = sw.GetSplitResult(Status.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
+        ArrayList<ArrayList<Integer>> typeResult = SplitWords.GetSplitResult(Status.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
         if (typeResult.size() != 0)//可能含有类型
             type = TypeInference(typeResult);//区分是歌还是故事或问题或英语
 
         if (type == Status.RECOMMEND_SONG)//匹配歌
-            result1 = sw.GetSplitResult(Status.input, Word.asSongSet, Word.aaiSongIndex);
+            result1 = SplitWords.GetSplitResult(Status.input, Word.asSongSet, Word.aaiSongIndex);
         else if(type == Status.RECOMMEND_STORY)//匹配故事
-            result1 = sw.GetSplitResult(Status.input, Word.asStorySet, Word.aaiStoryIndex);
+            result1 = SplitWords.GetSplitResult(Status.input, Word.asStorySet, Word.aaiStoryIndex);
         else if (type == Status.RECOMMEND_ENGLISH)
             return Status.RECOMMEND_ENGLISH;
 //        else if (type == Status.LOW_MATCH)
 //            type = Status.RECOMMEND_QUESTION;
 
-        result2 = sw.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
+        result2 = SplitWords.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
 
         if (result1.size() == 0 && result2.size() == 0)//什么都不匹配，噪音
             return Status.LOW_MATCH;
@@ -341,6 +340,38 @@ public class Match {
         }
     }
 
+    public static int getNLPResult()
+    {
+        //判断是否有效
+        if (silence())
+            return Status.SILENCE;
+
+        //判断是否是让去睡觉
+        if(sleep() == Status.SLEEP)
+            return Status.SLEEP;
+
+        //判断是否是唤醒
+        if (beibei() == Status.WAKE)
+            return Status.WAKE;
+
+        //判断是否是让翻译
+        if (translate())
+            return Status.TRANSLATE;
+
+        //判断是否是询问天气
+        if (weather())
+            return Status.WEATHER;
+
+        //判断是否是二次应答
+        if (Status.waitNext)
+            if (hasNo())
+                return Status.NO;
+            else
+                return Status.OK;
+
+        //判断是否是完整匹配
+        return match();
+    }
 
 
 //        public int match()
