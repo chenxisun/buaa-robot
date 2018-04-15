@@ -11,7 +11,6 @@ public class VoiceService {
 
     private String outTranslateUrl;
 
-<<<<<<< HEAD
 //    public int getNLPResult(String input)
 //    {
 //        MatchService ms = new MatchService();
@@ -108,7 +107,7 @@ public class VoiceService {
 //
 //        return  ;
 //    }
-=======
+
     public int getNLPResult()
     {
         Match ms = new Match();
@@ -144,32 +143,31 @@ public class VoiceService {
         return ms.match();
     }
 
-    public String getResult(String input){
-
-        int nlpres = getNLPResult();
-        //TODO:
-
-
-
-        return Status.LOW_MATCH;
-    }
-
-    public static void main(String[] args) {
-        VoiceService vs = new VoiceService();
-        NLPUtils.Match m = new NLPUtils.Match();
-        NLPUtils.SplitWords sw = new NLPUtils.SplitWords();
-        if (NLPUtils.Word.asStorySet == null)
-            NLPUtils.Word.init();
-
-        NLPUtils.Status.isSleep = false;
-        NLPUtils.Status.isGetResult = true;
-        NLPUtils.Status.input = "请讲白雪公主的故事";
-        System.out.println(m.match()+","+ NLPUtils.Status.recommend);
-
-        NLPUtils.Status.input = "呼和浩特后天..0？多少度";
-        m.weather();
-
-        return  ;
-    }
->>>>>>> bab9426d0c10cd071b57dbb33c639a34c1820d45
+//    public String getResult(String input){
+//
+//        int nlpres = getNLPResult();
+//        //TODO:
+//
+//
+//
+//        return Status.LOW_MATCH;
+//    }
+//
+//    public static void main(String[] args) {
+//        VoiceService vs = new VoiceService();
+//        NLPUtils.Match m = new NLPUtils.Match();
+//        NLPUtils.SplitWords sw = new NLPUtils.SplitWords();
+//        if (NLPUtils.Word.asStorySet == null)
+//            NLPUtils.Word.init();
+//
+//        NLPUtils.Status.isSleep = false;
+//        NLPUtils.Status.isGetResult = true;
+//        NLPUtils.Status.input = "请讲白雪公主的故事";
+//        System.out.println(m.match()+","+ NLPUtils.Status.recommend);
+//
+//        NLPUtils.Status.input = "呼和浩特后天..0？多少度";
+//        m.weather();
+//
+//        return  ;
+//    }
 }
