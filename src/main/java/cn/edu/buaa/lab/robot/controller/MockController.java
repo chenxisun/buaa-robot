@@ -5,9 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RequestMapping("/mock")
@@ -63,4 +66,34 @@ public class MockController {
         result.put("A", A);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @GetMapping("/page")
+    public ResponseEntity<?> listPage1(
+            @RequestParam(value = "pageNo", defaultValue = "0") final int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = "10") final int pageSize) throws Exception {
+        MockWord A = new MockWord();
+        Map<String, String> imgUrl = new HashMap<>();
+        imgUrl.put("img1", "");
+        imgUrl.put("img2", "");
+        imgUrl.put("img3", "");
+        A.setImgUrl(imgUrl);
+
+        A.setChineseIntroduction("A的中文解释");
+        A.setEnglishIntroduction("A的英文解释");
+        A.setChineseVoice("chineseVideo的path");
+        A.setEnglishVoice("englishVideo的path");
+
+        Map<String, MockWord> one = new HashMap<>();
+        one.put("A", A);
+
+        List result = new ArrayList();
+        result.add(one);
+        result.add(one);
+        result.add(one);
+        result.add(one);
+        result.add(one);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
 }
