@@ -174,6 +174,7 @@ public class KedaVoiceUtils {
 
     public static void main(String[] args) {
         KedaVoiceUtils t = new KedaVoiceUtils();
+//        t.generateAndPlay("123");
         t.generateAndSave("123","tts_test.pcm");
         PlayPcmUtils pp = new PlayPcmUtils();
         pp.playPCM("tts_test.pcm");
