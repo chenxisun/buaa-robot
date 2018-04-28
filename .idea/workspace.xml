@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aaa7a1b1-d689-4f7d-91d3-675eb6284373" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/SongController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msc/4d23a5893b7712e05ce340e5f7263fbb/urec.data" beforeDir="false" afterPath="$PROJECT_DIR$/msc/4d23a5893b7712e05ce340e5f7263fbb/urec.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/KedaVoiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/KedaVoiceUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/VoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/VoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts_test.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/tts_test.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,23 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VoiceController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/VoiceController.java">
+      <file leaf-file-name="MockController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/MockController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="13" selection-start-line="13" selection-end-line="34" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="182">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnglishController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnglishController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="301">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,80 +37,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SongController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/SongController.java">
+      <file leaf-file-name="KedaVoiceUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/KedaVoiceUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="266">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoryController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Status.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VoiceService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TranslateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/TranslateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuaaRobotDataSourceConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Recommend.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -185,9 +109,9 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/VoiceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/KedaVoiceUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/SongController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" />
       </list>
     </option>
   </component>
@@ -219,7 +143,7 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="buaa-robot-api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
       <select />
@@ -292,16 +216,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="robot" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="buaa-robot-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="buaa-robot-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="robot" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -331,23 +245,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="robot" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="buaa-robot-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="buaa-robot-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="robot" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="buaa-robot-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="buaa-robot-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -389,7 +287,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.KedaVoiceUtils">
+  <component name="RunManager" selected="Application.BuaaRobotApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -858,12 +756,12 @@
       <workItem from="1521122239875" duration="376000" />
       <workItem from="1524889450196" duration="402000" />
       <workItem from="1524891263441" duration="130000" />
-      <workItem from="1524891440425" duration="2079000" />
+      <workItem from="1524891440425" duration="3281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9928000" />
+    <option name="totallyTimeSpent" value="11130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -880,7 +778,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.31556502" side_tool="true" weight="0.23394994" />
-      <window_info anchor="right" id="Maven Projects" order="4" visible="true" weight="0.18815105" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="4" visible="true" weight="0.18815105" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -896,10 +794,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.68443495" visible="true" weight="0.30939227" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.68443495" visible="true" weight="0.17403315" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20377605" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20377605" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -937,13 +835,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/repository/TopicRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/repository/TopicWordRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1121,38 +1012,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/BuaaRobotApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/WeatherService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/WeatherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1173,61 +1036,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/KedaVoiceUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-785">
-          <caret line="121" column="68" lean-forward="true" selection-start-line="121" selection-start-column="68" selection-end-line="121" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/TranslateService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/TranslateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/VoiceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="13" selection-start-line="13" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1243,8 +1055,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        <state relative-caret-position="171">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Recommend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/BuaaRobotApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/WeatherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/TranslateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="24" column="62" lean-forward="true" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/VoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="109" lean-forward="true" selection-start-line="14" selection-start-column="109" selection-end-line="14" selection-end-column="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/KedaVoiceUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/MockController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
