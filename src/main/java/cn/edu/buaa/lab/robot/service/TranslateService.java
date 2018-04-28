@@ -1,7 +1,7 @@
 package cn.edu.buaa.lab.robot.service;
 
 import cn.edu.buaa.lab.robot.common.util.HttpUtils;
-import cn.edu.buaa.lab.robot.common.util.KedaVoiceUtils;
+//import cn.edu.buaa.lab.robot.common.util.KedaVoiceUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,6 @@ public class TranslateService {
     }
 
     public void getVoice(String input) throws Exception{
-        KedaVoiceUtils.generateAndPlay(input);
+//        KedaVoiceUtils.generateAndPlay(input);
     }
 }
