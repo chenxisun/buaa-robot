@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StoryController {
     @GetMapping("/list")
-    public ResponseEntity<?> list(@RequestParam(value = "topic", defaultValue = "") final String topic
+    public ResponseEntity<?> list(@RequestParam(value = "topic", defaultValue = "") final String topic,
+                                  @RequestParam(value = "pageNo", defaultValue = "") final String pageNo,
+                                  @RequestParam(value = "pageSize", defaultValue = "") final String pageSize
     ) throws Exception {
         StoryService ss = new StoryService();
-        return new ResponseEntity<>(ss.getList(topic), HttpStatus.OK);
+        return new ResponseEntity<>(ss.getList(topic,pageNo,pageSize), HttpStatus.OK);
     }
 
     @GetMapping("/version")

@@ -4,6 +4,23 @@ import java.util.ArrayList;
 
 public class StoryService {
     public ArrayList<String> getList(String topic){
+        if (topic.length() == 0)
+            return null;
+        ArrayList<String> topics = new ArrayList<String>();
+        //TODO:
+        // topic从数据库读取
+        topics.add("ertong_story");
+        return topics;
+    }
+
+    public ArrayList<String> getList(String topic,String pageNo, String pageSize){
+        if (topic.length() == 0)
+            return null;
+        Integer pn = Integer.parseInt(pageNo);
+        Integer ps = Integer.parseInt(pageSize);
+        Integer start = ps * (pn - 1) + 1;
+        Integer end = ps * pn;
+
         ArrayList<String> topics = new ArrayList<String>();
         //TODO:
         // topic从数据库读取
