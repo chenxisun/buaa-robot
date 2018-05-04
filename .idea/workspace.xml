@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aaa7a1b1-d689-4f7d-91d3-675eb6284373" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/EnglishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/SongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/EnglishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/EnglishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/SongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/SongService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/StoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/StoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java" afterDir="false" />
-    </list>
+    <list default="true" id="aaa7a1b1-d689-4f7d-91d3-675eb6284373" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +13,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Match.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Match.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
               <caret line="300" column="86" selection-start-line="300" selection-start-column="86" selection-end-line="300" selection-end-column="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuaaRobotApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/BuaaRobotApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#1108#1109#0" expanded="true" />
+                <element signature="e#1179#1180#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuaaRobotDataSourceConfiguration.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -104,27 +116,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SongService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/SongService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="19" column="86" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -155,7 +146,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/BuaaRobotApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/PlayPcmUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/PairUtils.java" />
@@ -191,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/StoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/util/NLP/Match.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/service/VoiceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java" />
       </list>
     </option>
   </component>
@@ -244,8 +235,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -296,6 +285,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="robot" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="buaa-robot-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buaa-robot-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="robot" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -331,6 +330,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -839,11 +840,12 @@
       <workItem from="1524896639374" duration="2610000" />
       <workItem from="1525265062709" duration="3223000" />
       <workItem from="1525436423860" duration="606000" />
+      <workItem from="1525441418195" duration="96000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18691000" />
+    <option name="totallyTimeSpent" value="18787000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -856,6 +858,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.31556502" side_tool="true" weight="0.23394994" />
@@ -877,7 +880,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.68443495" weight="0.25106382" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15416667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15416667" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -1075,13 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/controller/WeatherController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1121,17 +1117,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="925">
           <caret line="45" column="59" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/BuaaRobotApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#1108#1109#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1228,6 +1213,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="300" column="86" selection-start-line="300" selection-start-column="86" selection-end-line="300" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/BuaaRobotApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/buaa/lab/robot/common/configuration/BuaaRobotDataSourceConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
         </state>
       </provider>
     </entry>
