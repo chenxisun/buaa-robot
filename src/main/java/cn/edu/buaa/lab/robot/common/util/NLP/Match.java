@@ -142,11 +142,9 @@ public class Match {
         if (flag)
         {
             Status.isSleep = false;
-            Status.input = "";
             //l.WriteLog("#唤醒贝贝");
             return Status.WAKE;
         }
-        Status.input = "";
         return -1;
     }
 
@@ -281,6 +279,15 @@ public class Match {
 
     public static boolean translate()
     {
+        String s = "用英语怎么说";
+        for (int i = 0; i < Status.input.length(); i++)
+        {
+            String tmp = Status.input.substring(i,Status.input.length());
+            if (tmp.startsWith(s)) {
+                Status.input = Status.input.substring(0, i);
+                return true;
+            }
+        }
         return false;
     }
 

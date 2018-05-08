@@ -7,20 +7,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequestMapping("/test")
+@RequestMapping("/voice")
 @RestController
 public class VoiceController {
 
     @GetMapping("/get")
-    public ResponseEntity<?> list(@RequestParam(value = "team", defaultValue = "") final String team,
-                                  @RequestParam(value = "pageNo", defaultValue = "0") final int pageNo,
-                                  @RequestParam(value = "pageSize", defaultValue = "10") final int pageSize) throws
-            Exception {
-        int t = Integer.parseInt(team);
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "hello");
-        result.put("value", String.valueOf(t*pageNo));
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public ResponseEntity<?> list(@RequestParam(value = "isSleep", defaultValue = "false") final boolean isSleep,
+                                  @RequestParam(value = "voiceInput", defaultValue = "") final String voiceInput,
+                                  @RequestParam(value = "waitNext", defaultValue = "false") final boolean waitNext,
+                                  @RequestParam(value = "curActType", defaultValue = "") final int curActType,
+                                  @RequestParam(value = "curActIndex", defaultValue = "") final int curActIndex,
+                                  @RequestParam(value = "macId", defaultValue = "") final String macId
+
+    ) throws Exception {
+//        int t = Integer.parseInt(team);
+//        Map<String, String> result = new HashMap<>();
+//        result.put("data", "hello");
+//        result.put("value", String.valueOf(t*pageNo));
+        return new ResponseEntity<>("123", HttpStatus.OK);
     }
 
     @PostMapping()
