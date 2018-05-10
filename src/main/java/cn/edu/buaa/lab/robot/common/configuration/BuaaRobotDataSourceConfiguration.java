@@ -62,7 +62,7 @@ public class BuaaRobotDataSourceConfiguration {
 
         factoryBean.setDataSource(buaaRobotDataSource());
         factoryBean.setJpaVendorAdapter(vendorAdapter);
-        factoryBean.setPackagesToScan(new String[]{"cn.edu.buaa.lab.robot.model"});
+        factoryBean.setPackagesToScan("cn.edu.buaa.lab.robot.model");
         factoryBean.setJpaProperties(additionalProperties());
 
         return factoryBean;

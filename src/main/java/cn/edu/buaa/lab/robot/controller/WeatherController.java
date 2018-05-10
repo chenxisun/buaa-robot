@@ -20,5 +20,10 @@ public class WeatherController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-
+    @GetMapping("/{date}/{city}")
+    public ResponseEntity<?> list(@PathVariable final String date, @PathVariable final String city) throws
+            Exception {
+        String result = weatherService.getWeatherByDateAndCity(date, city);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }
