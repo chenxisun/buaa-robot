@@ -15,6 +15,61 @@ public class TopicWordModel extends BaseModel {
     @Column(name = "word_id")
     private Integer wordId;
 
+    @Column(name = "english_content")
+    private Integer englishContent;
+
+    @Column(name = "chinese_content")
+    private Integer chineseContent;
+
+    @Column(name = "english_voice_path")
+    private Integer englishVoicePath;
+
+    @Column(name = "chinese_voice_path")
+    private Integer chineseVoicePath;
+
+    @Column(name = "img1_path")
+    private Integer img1Path;
+
+    public Integer getEnglishContent() {
+        return englishContent;
+    }
+
+    public void setEnglishContent(Integer englishContent) {
+        this.englishContent = englishContent;
+    }
+
+    public Integer getChineseContent() {
+        return chineseContent;
+    }
+
+    public void setChineseContent(Integer chineseContent) {
+        this.chineseContent = chineseContent;
+    }
+
+    public Integer getEnglishVoicePath() {
+        return englishVoicePath;
+    }
+
+    public void setEnglishVoicePath(Integer englishVoicePath) {
+        this.englishVoicePath = englishVoicePath;
+    }
+
+    public Integer getChineseVoicePath() {
+        return chineseVoicePath;
+    }
+
+    public void setChineseVoicePath(Integer chineseVoicePath) {
+        this.chineseVoicePath = chineseVoicePath;
+    }
+
+    public Integer getImg1Path() {
+        return img1Path;
+    }
+
+    public void setImg1Path(Integer img1Path) {
+        this.img1Path = img1Path;
+    }
+
     public Integer getTopicId() {
         return topicId;
     }

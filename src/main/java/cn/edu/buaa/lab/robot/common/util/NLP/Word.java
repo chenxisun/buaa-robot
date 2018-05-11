@@ -47,6 +47,8 @@ public class Word {
             reader = new BufferedReader(new FileReader(fDic));
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
+                if (tempString.startsWith(String.valueOf('\uFEFF')))
+                    tempString = tempString.substring(1,tempString.length());
                 asQuestionSet.add(tempString);
             }
             reader.close();
@@ -107,6 +109,8 @@ public class Word {
             reader = new BufferedReader(new FileReader(fCount));
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
+                if (tempString.startsWith(String.valueOf('\uFEFF')))
+                    tempString = tempString.substring(1,tempString.length());
                 as.add(tempString);
             }
             reader.close();
@@ -131,6 +135,8 @@ public class Word {
             reader = new BufferedReader(new FileReader(fmap));
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
+                if (tempString.startsWith(String.valueOf('\uFEFF')))
+                    tempString = tempString.substring(1,tempString.length());
                 mName.put(iStart++, tempString);
             }
             reader.close();
