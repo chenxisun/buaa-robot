@@ -9,6 +9,9 @@ import javax.persistence.Table;
 @Table(name = "r_question_answer")
 public class QAModel extends BaseModel {
 
+    @Column(name = "old_index")
+    private String oldIndex;
+
     @Column(name = "content")
     private String content;
 
@@ -17,6 +20,14 @@ public class QAModel extends BaseModel {
 
     @Column(name = "video_path")
     private String videoPath;
+
+    public String getOldIndex() {
+        return oldIndex;
+    }
+
+    public void setOldIndex(String oldIndex) {
+        this.oldIndex = oldIndex;
+    }
 
     public String getContent() {
         return content;

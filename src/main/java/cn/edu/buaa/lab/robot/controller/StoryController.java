@@ -21,9 +21,9 @@ public class StoryController {
     }
 
     @GetMapping("/version")
-    public ResponseEntity<?> version(@RequestParam(value = "songVersion", defaultValue = "") final String songVersion
+    public ResponseEntity<?> version(@RequestParam(value = "storyVersion", defaultValue = "") final String storyVersion
     ) throws Exception {
         StoryService ss = new StoryService();
-        return new ResponseEntity<>(ss.checkVersion(songVersion), HttpStatus.OK);
+        return new ResponseEntity<>(ss.checkVersion(storyVersion), HttpStatus.OK);
     }
 }

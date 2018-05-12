@@ -194,7 +194,7 @@ public class Match {
         {
             for(int j = 0; j < length2; j++)
             {
-                if (Status.input.charAt(i) == bu.get(i).charAt(0))
+                if (Status.input.charAt(i) == bu.get(j).charAt(0))
                 {
                     no = true;
                     break;
@@ -204,6 +204,32 @@ public class Match {
                 break;
         }
         return no;
+    }
+
+    public static boolean isOK()
+    {
+        ArrayList<String> ok = new ArrayList<String>();
+        ok.add("好");
+        ok.add("行");
+        ok.add("可以");
+
+        int length1 = Status.input.length();
+        int length2 = ok.size();
+        boolean o = false;
+        for(int i = 0; i < length1; i++)
+        {
+            for(int j = 0; j < length2; j++)
+            {
+                if (Status.input.charAt(i) == ok.get(j).charAt(0))
+                {
+                    o = true;
+                    break;
+                }
+            }
+            if (o)
+                break;
+        }
+        return o;
     }
 
     public static boolean silence()
@@ -219,6 +245,9 @@ public class Match {
         for (int i = 0; i < Status.input.length()-1; i++)
         {
             String tmp = Status.input.substring(i,i+2);
+//            for (String ii : Word.asWeatherAsk)
+//                if (ii.equals(tmp))
+//                    f_weather = true;
             if (Word.asWeatherAsk.contains(tmp))
                 f_weather = true;
         }
@@ -270,6 +299,8 @@ public class Match {
                 }
             }
         }
+        //TODO:
+        Status.weather_time = 0;
 
         if(Status.weather_time==-3)
             return false;
@@ -313,8 +344,8 @@ public class Match {
 
         result2 = SplitWords.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
 
-        if (result1.size() == 0 && result2.size() == 0)//什么都不匹配，噪音
-            return Status.LOW_MATCH;
+        if (result1.size() == 0 && result2.size() == 0)//没有找到匹配内容
+            return type;
         else if (type == Status.RECOMMEND_QUESTION)//匹配问题
         {
             p = GetAnswerIndex(result2);
@@ -353,13 +384,16 @@ public class Match {
         if (silence())
             return Status.SILENCE;
 
+        if (Status.isSleep)
+            //判断是否是唤醒
+            if (beibei() == Status.WAKE)
+                return Status.WAKE;
+            else
+                return Status.SILENCE;
+
         //判断是否是让去睡觉
         if(sleep() == Status.SLEEP)
             return Status.SLEEP;
-
-        //判断是否是唤醒
-        if (beibei() == Status.WAKE)
-            return Status.WAKE;
 
         //判断是否是让翻译
         if (translate())
@@ -373,121 +407,12 @@ public class Match {
         if (Status.waitNext)
             if (hasNo())
                 return Status.NO;
-            else
+            else if (isOK())
                 return Status.OK;
+            else
+                return Status.NO;
 
         //判断是否是完整匹配
         return match();
     }
-
-
-//        public int match()
-//        {
-//            //Log l = new Log();
-//            //String tmps = Status.input;
-//            if (isSilence())
-//            {
-//                //l.WriteLog("#沉默");
-//                return Status.SILENCE;
-//            }
-//            if(sleep() == Status.SILENCE)
-//                return Status.SILENCE;
-//
-//            Status.notMatchTime = 0;
-//            int lastType = Status.recommend;
-//            int answer = isIntegrity(lastType);
-//
-//            if (answer > 0)//有完整性匹配
-//            {
-//                //l.WriteLog(tmps,answer);
-//                return answer;
-//            }
-//
-//            if (answer == Status.RECOMMEND)//不完整，但有状态
-//            {
-//                //检测有无状态转变
-//                if (lastType == Status.recommend)//无状态转变
-//                {
-//                    if (Status.waitNext)//检测是否在回答问题
-//                    {
-//                        Status.waitNext = false;
-//                        if (hasNo())//否定回答
-//                        {
-//                            //l.WriteLog(tmps,Status.NO);
-//                            return Status.NO;
-//                        }
-//                        else//肯定回答
-//                        {
-//                            if (Status.recommendIndex > 0)//检测是否已经推荐
-//                            {
-//                                //l.WriteLog(tmps,Status.recommendIndex);
-//                                return Status.recommendIndex;
-//                            }
-//                            else//同意推荐
-//                            {
-//                                //l.WriteLog(tmps,Status.OK);
-//                                return Status.OK;
-//                            }
-//                        }
-//                    }
-//                    else//仍在这个状态中，继续下个随机，（先回答还得想一下）
-//                    {
-//                        //l.WriteLog(tmps,Status.LOW_MATCH_AND_RECOMMEND);
-//                        return Status.LOW_MATCH_AND_RECOMMEND;
-//                    }
-//                }
-//                else//有状态转变
-//                {
-//                    Recommend r = new Recommend();
-//                    if(Status.recommend == Status.RECOMMEND_QUESTION)
-//                    {
-//                        //l.WriteLog(tmps,Status.CHANGE_TO_QUESTION);
-//                        r.changeToQuestion();
-//                        return Status.CHANGE_TO_QUESTION;
-//                    }
-//                    if (Status.recommend == Status.RECOMMEND_SONG)
-//                    {
-//                        //l.WriteLog(tmps,Status.CHANGE_TO_SONG);
-//                        r.changeToSong();
-//                        return Status.CHANGE_TO_SONG;
-//                    }
-//                    if (Status.recommend == Status.RECOMMEND_STORY)
-//                    {
-//                        //l.WriteLog(tmps,Status.CHANGE_TO_STORY);
-//                        r.changeToStory();
-//                        return Status.CHANGE_TO_STORY;
-//                    }
-//                    if (Status.recommend == Status.RECOMMEND_ENGLISH)
-//                    {
-//                        //l.WriteLog(tmps,Status.CHANGE_TO_STORY);
-//                        return Status.CHANGE_TO_ENGLISH;
-//                    }
-//                }
-//            }
-//            else if (Status.waitNext)//不完整，且无状态 //检测是否在回答问题
-//            {
-//                Status.waitNext = false;
-//                if (hasNo())//否定回答
-//                {
-//                    //l.WriteLog(tmps,Status.NO);
-//                    return Status.NO;
-//                }
-//                else//肯定回答
-//                {
-//                    if (Status.recommendIndex > 0)//检测是否已经推荐
-//                    {
-//                        //l.WriteLog(tmps,Status.recommendIndex);
-//                        return Status.recommendIndex;
-//                    }
-//                    else//同意推荐
-//                    {
-//                        //l.WriteLog(tmps,Status.OK);
-//                        return Status.OK;
-//                    }
-//                }
-//            }
-//
-//            //l.WriteLog(tmps,Status.LOW_MATCH);
-//            return Status.LOW_MATCH;
-//        }
 }
