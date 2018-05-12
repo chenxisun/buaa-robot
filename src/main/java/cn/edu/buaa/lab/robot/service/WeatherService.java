@@ -72,8 +72,10 @@ public class WeatherService {
             return;
         }
 
-
         String today = DateUtils.today();
+//        if () {
+//
+//        }
 
 
 //        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
