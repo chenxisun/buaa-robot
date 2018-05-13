@@ -1,5 +1,6 @@
 package cn.edu.buaa.lab.robot.controller;
 
+import cn.edu.buaa.lab.robot.common.util.NLP.Status;
 import cn.edu.buaa.lab.robot.service.TranslateService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,12 @@ public class TranslateController {
         Gson gson = new Gson();
         Map<String, Object> map = new HashMap<String, Object>();
         map = gson.fromJson(jsonString, map.getClass());
-        ArrayList<String> as = new ArrayList<>();
-        as =(ArrayList<String>) map.get("translation");
-        translateService.getVoice(as.get(0));
-        return new ResponseEntity<>(jsonString, HttpStatus.OK);
+        ArrayList<String> as = (ArrayList<String>) map.get("translation");
+        String path = translateService.getVoice(Status.input);
+        Map<String ,String > result = new HashMap<>();
+        result.put("result", jsonString);
+        result.put("voicePath",path);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
-
 
 }

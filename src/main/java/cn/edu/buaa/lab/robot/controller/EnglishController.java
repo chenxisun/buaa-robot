@@ -27,7 +27,7 @@ public class EnglishController {
                                       @RequestParam(value = "pageSize", defaultValue = "") final String pageSize
     ) throws Exception {
         EnglishService es = new EnglishService();
-        return new ResponseEntity<>(es.getList(topic,pageNo,pageSize), HttpStatus.OK);
+        return new ResponseEntity<>(es.getWords(topic,pageNo,pageSize), HttpStatus.OK);
     }
 
 }
