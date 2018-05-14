@@ -47,12 +47,12 @@ public class EnglishService {
     }
 
     public List<TopicWordModel> getWords(String topic) throws Exception {
-        List<TopicWordModel> twlist = topicWordRepository.findAllByDeletedAndTopic(0,topic);
+        List<TopicWordModel> twlist = topicWordRepository.findAllByDeletedAndTopicName(0,topic);
         return twlist;
     }
 
     public  List<TopicWordModel> getWords(String topic, String pageNo, String pageSize) throws Exception {
-        List<TopicWordModel> twlist = topicWordRepository.findAllByDeletedAndTopic(0,topic);
+        List<TopicWordModel> twlist = topicWordRepository.findAllByDeletedAndTopicName(0,topic);
         //TODO:好像不需要排序
         Integer pn = Integer.parseInt(pageNo);
         Integer ps = Integer.parseInt(pageSize);

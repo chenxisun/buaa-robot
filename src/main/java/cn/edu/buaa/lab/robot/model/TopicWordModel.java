@@ -12,6 +12,9 @@ public class TopicWordModel extends BaseModel {
     @Column(name = "topic_id")
     private Integer topicId;
 
+    @Column(name = "topic_name")
+    private Integer topicName;
+
     @Column(name = "word_id")
     private Integer wordId;
 
@@ -29,6 +32,14 @@ public class TopicWordModel extends BaseModel {
 
     @Column(name = "img1_path")
     private Integer img1Path;
+
+    public Integer getTopicName() {
+        return topicName;
+    }
+
+    public void setTopicName(Integer topicName) {
+        this.topicName = topicName;
+    }
 
     public Integer getEnglishContent() {
         return englishContent;

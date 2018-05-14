@@ -15,7 +15,7 @@ import java.util.Map;
 @RequestMapping("/mock")
 @RestController
 public class MockController {
-    private StoryRepository storyRepository;
+//    private StoryRepository storyRepository;
 
     @GetMapping("/hello1")
     public ResponseEntity<?> listHello1() throws
@@ -96,17 +96,17 @@ public class MockController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("/story/{id}")
-    public ResponseEntity<?> listHello3(@PathVariable("id") Integer id) throws
-            Exception {
-        StoryModel s = storyRepository.findById(id);
-
-        Map<String, StoryModel> one = new HashMap<>();
-        one.put("lalala", s);
-
-        List result = new ArrayList();
-        result.add(one);
-
-        return new ResponseEntity<>(result, HttpStatus.OK);
-    }
+//    @GetMapping("/story/{id}")
+//    public ResponseEntity<?> listHello3(@PathVariable("id") Integer id) throws
+//            Exception {
+//        StoryModel s = storyRepository.findById(id);
+//
+//        Map<String, StoryModel> one = new HashMap<>();
+//        one.put("lalala", s);
+//
+//        List result = new ArrayList();
+//        result.add(one);
+//
+//        return new ResponseEntity<>(result, HttpStatus.OK);
+//    }
 }
