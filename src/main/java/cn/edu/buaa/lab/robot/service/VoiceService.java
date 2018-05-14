@@ -98,12 +98,12 @@ public class VoiceService {
                 voice += content;
                 result.put("command",String.valueOf(Status.WEATHER));
                 result.put("content",content);
-                result.put("voicePath",weatherService.getVoice(voice));
+                result.put("voicePath",outResourceUrl+""+weatherService.getVoice(voice));
                 break;
             case Status.TRANSLATE:
                 result.put("command",String.valueOf(Status.TRANSLATE));
                 result.put("content",translateService.getEnglish(Status.input));
-                result.put("voicePath",translateService.getVoice(Status.input));
+                result.put("voicePath",outResourceUrl+""+translateService.getVoice(Status.input));
                 break;
             case Status.SLEEP:
                 result.put("command",String.valueOf(Status.SLEEP));

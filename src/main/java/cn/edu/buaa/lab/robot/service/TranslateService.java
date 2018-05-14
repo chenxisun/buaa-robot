@@ -34,7 +34,7 @@ public class TranslateService {
             name+=String.valueOf(tmp);
         }
         name+=".pcm";
-        KedaVoiceUtils.generateAndSave(input,"/translateVoice/"+name);
+        KedaVoiceUtils.generateAndSave(input,"/home/vsftp/smartbeibei/translateVoice/"+name);
         return "/translateVoice/"+name;
     }
 }

@@ -104,8 +104,6 @@
 			<groupId>com.iflytek</groupId>
 			<artifactId>Msc</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/Msc.jar</systemPath>
 		</dependency>
 	</dependencies>
 

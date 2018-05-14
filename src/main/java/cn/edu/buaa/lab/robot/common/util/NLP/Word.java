@@ -170,32 +170,32 @@ public class Word {
         asWeatherTime = new ArrayList<String>();
         mName = new HashMap<Integer,String>();
 
-        final String pathPre = "/home/vsftp/smartbeibei/";
-//        final String pathPre = "/Users/didi/prj/git.zhd/buaa-robot/buaa-robot-api/src/main/resources/";
+//        final String pathPre = "/home/vsftp/smartbeibei/";
+////        final String pathPre = "/Users/didi/prj/git.zhd/buaa-robot/buaa-robot-api/src/main/resources/";
+//
+//        readIntoList(asTypeSet,aaiTypeIndex,pathPre+"txt/type.txt", pathPre+"txt/type_index.txt");
+//        readIntoList(asQuestionSet,aaiQuestionIndex,pathPre+"txt/question.txt",pathPre+"txt/question_index.txt");
+//        readIntoList(asStorySet,aaiStoryIndex,pathPre+"txt/story.txt",pathPre+"txt/story_index.txt");
+//        readIntoList(asSongSet,aaiSongIndex,pathPre+"txt/song.txt",pathPre+"txt/song_index.txt");
+//        readIntoList(aiCountSet, pathPre+"txt/count.txt");
+//        readIntoMap(mName,pathPre+"txt/question_name.txt",1);
+//        readIntoMap(mName,pathPre+"txt/song_name.txt",201);
+//        readIntoMap(mName,pathPre+"txt/story_name.txt",301);
+//        readIntoListS(asWeatherAsk,pathPre+"txt/weather_ask.txt");
+//        readIntoListS(asWeatherCity,pathPre+"txt/weather_city.txt");
+//        readIntoListS(asWeatherTime,pathPre+"txt/weather_time.txt");
 
-        readIntoList(asTypeSet,aaiTypeIndex,pathPre+"txt/type.txt", pathPre+"txt/type_index.txt");
-        readIntoList(asQuestionSet,aaiQuestionIndex,pathPre+"txt/question.txt",pathPre+"txt/question_index.txt");
-        readIntoList(asStorySet,aaiStoryIndex,pathPre+"txt/story.txt",pathPre+"txt/story_index.txt");
-        readIntoList(asSongSet,aaiSongIndex,pathPre+"txt/song.txt",pathPre+"txt/song_index.txt");
-        readIntoList(aiCountSet, pathPre+"txt/count.txt");
-        readIntoMap(mName,pathPre+"txt/question_name.txt",1);
-        readIntoMap(mName,pathPre+"txt/song_name.txt",201);
-        readIntoMap(mName,pathPre+"txt/story_name.txt",301);
-        readIntoListS(asWeatherAsk,pathPre+"txt/weather_ask.txt");
-        readIntoListS(asWeatherCity,pathPre+"txt/weather_city.txt");
-        readIntoListS(asWeatherTime,pathPre+"txt/weather_time.txt");
-
-//        readIntoList(asTypeSet,aaiTypeIndex,"src/main/resources/txt/type.txt","src/main/resources/txt/type_index.txt");
-//        readIntoList(asQuestionSet,aaiQuestionIndex,"src/main/resources/txt/question.txt","src/main/resources/txt/question_index.txt");
-//        readIntoList(asStorySet,aaiStoryIndex,"src/main/resources/txt/story.txt","src/main/resources/txt/story_index.txt");
-//        readIntoList(asSongSet,aaiSongIndex,"src/main/resources/txt/song.txt","src/main/resources/txt/song_index.txt");
-//        readIntoList(aiCountSet, "src/main/resources/txt/count.txt");
-//        readIntoMap(mName,"src/main/resources/txt/question_name.txt",1);
-//        readIntoMap(mName,"src/main/resources/txt/song_name.txt",201);
-//        readIntoMap(mName,"src/main/resources/txt/story_name.txt",301);
-//        readIntoListS(asWeatherAsk,"src/main/resources/txt/weather_ask.txt");
-//        readIntoListS(asWeatherCity,"src/main/resources/txt/weather_city.txt");
-//        readIntoListS(asWeatherTime,"src/main/resources/txt/weather_time.txt");
+        readIntoList(asTypeSet,aaiTypeIndex,"src/main/resources/txt/type.txt","src/main/resources/txt/type_index.txt");
+        readIntoList(asQuestionSet,aaiQuestionIndex,"src/main/resources/txt/question.txt","src/main/resources/txt/question_index.txt");
+        readIntoList(asStorySet,aaiStoryIndex,"src/main/resources/txt/story.txt","src/main/resources/txt/story_index.txt");
+        readIntoList(asSongSet,aaiSongIndex,"src/main/resources/txt/song.txt","src/main/resources/txt/song_index.txt");
+        readIntoList(aiCountSet, "src/main/resources/txt/count.txt");
+        readIntoMap(mName,"src/main/resources/txt/question_name.txt",1);
+        readIntoMap(mName,"src/main/resources/txt/song_name.txt",201);
+        readIntoMap(mName,"src/main/resources/txt/story_name.txt",301);
+        readIntoListS(asWeatherAsk,"src/main/resources/txt/weather_ask.txt");
+        readIntoListS(asWeatherCity,"src/main/resources/txt/weather_city.txt");
+        readIntoListS(asWeatherTime,"src/main/resources/txt/weather_time.txt");
 //		System.out.println("word init.");
     }
 }

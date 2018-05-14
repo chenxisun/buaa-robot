@@ -100,7 +100,7 @@ public class WeatherService {
             name+=String.valueOf(tmp);
         }
         name+=".pcm";
-        KedaVoiceUtils.generateAndSave(input,"/weatherVoice/"+name);
+        KedaVoiceUtils.generateAndSave(input,"/home/vsftp/smartbeibei/weatherVoice/"+name);
         return "/weatherVoice/"+name;
     }
 }

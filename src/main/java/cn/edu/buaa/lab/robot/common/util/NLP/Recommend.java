@@ -19,7 +19,7 @@ public class Recommend {
         }
         name+=".pcm";
         String path = "/recommend/"+name;
-        KedaVoiceUtils.generateAndSave(ss,path);
+        KedaVoiceUtils.generateAndSave(ss,"/home/vsftp/smartbeibei"+path);
         return path;
     }
 
@@ -37,7 +37,7 @@ public class Recommend {
         }
         name+=".pcm";
         String path = "/recommend/"+name;
-        KedaVoiceUtils.generateAndSave(ss,path);
+        KedaVoiceUtils.generateAndSave(ss,"/home/vsftp/smartbeibei"+path);
         return path;
     }
 
@@ -55,7 +55,7 @@ public class Recommend {
         }
         name+=".pcm";
         String path = "/recommend/"+name;
-        KedaVoiceUtils.generateAndSave(ss,path);
+        KedaVoiceUtils.generateAndSave(ss,"/home/vsftp/smartbeibei"+path);
         return path;
     }
 }
