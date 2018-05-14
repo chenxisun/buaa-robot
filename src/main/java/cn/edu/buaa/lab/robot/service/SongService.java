@@ -2,14 +2,15 @@ package cn.edu.buaa.lab.robot.service;
 
 import cn.edu.buaa.lab.robot.model.MusicModel;
 import cn.edu.buaa.lab.robot.repository.MusicRepository;
-import cn.edu.buaa.lab.robot.repository.WeatherRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SongService {
     private static final Logger logger = LoggerFactory.getLogger("SongService");
 

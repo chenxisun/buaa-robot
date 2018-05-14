@@ -12,7 +12,7 @@ public class TopicModel extends BaseModel {
     private String content;
 
     @Column(name = "size")
-    private String size;
+    private Integer size;
 
     @Column(name = "english_voice_path")
     private String englishVoicePath;
@@ -23,20 +23,20 @@ public class TopicModel extends BaseModel {
     @Column(name = "img1_path")
     private String img1Path;
 
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 
     public String getEnglishVoicePath() {
