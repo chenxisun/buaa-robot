@@ -11,5 +11,5 @@ import java.util.List;
 public interface WeatherRepository extends CrudRepository<WeatherModel, Integer> {
     List<WeatherModel> findAllByDeletedAndDateAndCity(Integer deleted, String date, String city);
 
-    List<WeatherModel> findAllByDeletedAndDateAndCityLike(Integer deleted, String date, String city);
+    List<WeatherModel> findAllByDeletedAndDateAndCityContains(Integer deleted, String date, String city);
 }
