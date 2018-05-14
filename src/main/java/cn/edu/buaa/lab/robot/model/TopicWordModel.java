@@ -13,73 +13,25 @@ public class TopicWordModel extends BaseModel {
     private Integer topicId;
 
     @Column(name = "topic_name")
-    private Integer topicName;
+    private String topicName;
 
     @Column(name = "word_id")
     private Integer wordId;
 
     @Column(name = "english_content")
-    private Integer englishContent;
+    private String englishContent;
 
     @Column(name = "chinese_content")
-    private Integer chineseContent;
+    private String chineseContent;
 
     @Column(name = "english_voice_path")
-    private Integer englishVoicePath;
+    private String englishVoicePath;
 
     @Column(name = "chinese_voice_path")
-    private Integer chineseVoicePath;
+    private String chineseVoicePath;
 
     @Column(name = "img1_path")
-    private Integer img1Path;
-
-    public Integer getTopicName() {
-        return topicName;
-    }
-
-    public void setTopicName(Integer topicName) {
-        this.topicName = topicName;
-    }
-
-    public Integer getEnglishContent() {
-        return englishContent;
-    }
-
-    public void setEnglishContent(Integer englishContent) {
-        this.englishContent = englishContent;
-    }
-
-    public Integer getChineseContent() {
-        return chineseContent;
-    }
-
-    public void setChineseContent(Integer chineseContent) {
-        this.chineseContent = chineseContent;
-    }
-
-    public Integer getEnglishVoicePath() {
-        return englishVoicePath;
-    }
-
-    public void setEnglishVoicePath(Integer englishVoicePath) {
-        this.englishVoicePath = englishVoicePath;
-    }
-
-    public Integer getChineseVoicePath() {
-        return chineseVoicePath;
-    }
-
-    public void setChineseVoicePath(Integer chineseVoicePath) {
-        this.chineseVoicePath = chineseVoicePath;
-    }
-
-    public Integer getImg1Path() {
-        return img1Path;
-    }
-
-    public void setImg1Path(Integer img1Path) {
-        this.img1Path = img1Path;
-    }
+    private String img1Path;
 
     public Integer getTopicId() {
         return topicId;
@@ -89,11 +41,59 @@ public class TopicWordModel extends BaseModel {
         this.topicId = topicId;
     }
 
+    public String getTopicName() {
+        return topicName;
+    }
+
+    public void setTopicName(String topicName) {
+        this.topicName = topicName;
+    }
+
     public Integer getWordId() {
         return wordId;
     }
 
     public void setWordId(Integer wordId) {
         this.wordId = wordId;
+    }
+
+    public String getEnglishContent() {
+        return englishContent;
+    }
+
+    public void setEnglishContent(String englishContent) {
+        this.englishContent = englishContent;
+    }
+
+    public String getChineseContent() {
+        return chineseContent;
+    }
+
+    public void setChineseContent(String chineseContent) {
+        this.chineseContent = chineseContent;
+    }
+
+    public String getEnglishVoicePath() {
+        return englishVoicePath;
+    }
+
+    public void setEnglishVoicePath(String englishVoicePath) {
+        this.englishVoicePath = englishVoicePath;
+    }
+
+    public String getChineseVoicePath() {
+        return chineseVoicePath;
+    }
+
+    public void setChineseVoicePath(String chineseVoicePath) {
+        this.chineseVoicePath = chineseVoicePath;
+    }
+
+    public String getImg1Path() {
+        return img1Path;
+    }
+
+    public void setImg1Path(String img1Path) {
+        this.img1Path = img1Path;
     }
 }

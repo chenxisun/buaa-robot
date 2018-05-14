@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class MusicModel extends BaseModel {
 
     @Column(name = "old_index")
-    private String oldIndex;
+    private Integer oldIndex;
 
     @Column(name = "name")
     private String name;
@@ -27,11 +27,11 @@ public class MusicModel extends BaseModel {
     @Column(name = "video_path")
     private String videoPath;
 
-    public String getOldIndex() {
+    public Integer getOldIndex() {
         return oldIndex;
     }
 
-    public void setOldIndex(String oldIndex) {
+    public void setOldIndex(Integer oldIndex) {
         this.oldIndex = oldIndex;
     }
 

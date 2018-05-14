@@ -1,7 +1,5 @@
 package cn.edu.buaa.lab.robot.model;
 
-import cn.edu.buaa.lab.robot.model.BaseModel;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
