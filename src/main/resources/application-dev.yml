@@ -9,7 +9,7 @@ spring:
       test-while-idle: true
       test-on-borrow: true
       validation-query: select 1 from dual
-    url: jdbc:mysql://192.168.251.168:3306/buaa_robot_db?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://192.168.251.169:3306/buaa_robot_db?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: myuser
     password: mypassword
 

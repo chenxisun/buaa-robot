@@ -91,10 +91,15 @@
 			<version>4.5.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20090211</version>
+			<groupId>com.hp.hpl.jena</groupId>
+			<artifactId>json-jena</artifactId>
+			<version>1.0</version>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.json</groupId>-->
+			<!--<artifactId>json</artifactId>-->
+			<!--<version>20090211</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
