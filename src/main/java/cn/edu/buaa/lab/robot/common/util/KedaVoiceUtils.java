@@ -11,6 +11,7 @@ import com.iflytek.cloud.speech.SpeechUtility;
 import com.iflytek.cloud.speech.SynthesizeToUriListener;
 import com.iflytek.cloud.speech.SynthesizerListener;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class KedaVoiceUtils {
@@ -126,6 +127,11 @@ public class KedaVoiceUtils {
         mTts.synthesizeToUri(content, path,synthesizeToUriListener);
 
         //TODO:检索是否生成
+        File file = new File(path);
+        if(!file.exists())
+            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+        if(!file.exists())
+            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
     }
 
     public static void dictationByMicrophone()
