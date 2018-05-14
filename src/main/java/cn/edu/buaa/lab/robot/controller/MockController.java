@@ -1,12 +1,11 @@
 package cn.edu.buaa.lab.robot.controller;
 
+import cn.edu.buaa.lab.robot.model.StoryModel;
 import cn.edu.buaa.lab.robot.model.vo.MockWord;
+import cn.edu.buaa.lab.robot.repository.StoryRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +15,7 @@ import java.util.Map;
 @RequestMapping("/mock")
 @RestController
 public class MockController {
+    private StoryRepository storyRepository;
 
     @GetMapping("/hello1")
     public ResponseEntity<?> listHello1() throws
@@ -96,4 +96,17 @@ public class MockController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @GetMapping("/story/{id}")
+    public ResponseEntity<?> listHello3(@PathVariable("id") Integer id) throws
+            Exception {
+        StoryModel s = storyRepository.findById(id);
+
+        Map<String, StoryModel> one = new HashMap<>();
+        one.put("lalala", s);
+
+        List result = new ArrayList();
+        result.add(one);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

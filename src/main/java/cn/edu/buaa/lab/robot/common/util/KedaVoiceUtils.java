@@ -124,6 +124,8 @@ public class KedaVoiceUtils {
         //3.开始合成
         //设置合成音频保存位置（可自定义保存位置），默认保存在“./tts_test.pcm”
         mTts.synthesizeToUri(content, path,synthesizeToUriListener);
+
+        //TODO:检索是否生成
     }
 
     public static void dictationByMicrophone()

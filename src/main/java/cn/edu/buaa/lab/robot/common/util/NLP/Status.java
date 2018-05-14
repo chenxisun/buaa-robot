@@ -15,14 +15,15 @@ public class Status {
     public static final int SLEEP = -21;
     public static final int WAKE = -22;
 
+    //每次要重置
     public static int recommendIndex = -1;
     public static int weather_time = -3;
+    public static String weather_city = "";
 
     //以下需要每个机器单独发送状态
     public static boolean isSleep = false;
     public static String input = "";
     public static boolean waitNext = false;
-    public static String weather_city = "";
 
     //更新算法后不再用
     //public static boolean isGetResult = false;
