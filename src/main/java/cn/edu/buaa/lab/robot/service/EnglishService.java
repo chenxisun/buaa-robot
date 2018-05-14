@@ -12,6 +12,8 @@ import cn.edu.buaa.lab.robot.repository.WeatherRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -50,22 +52,25 @@ public class EnglishService {
         return twlist;
     }
 
-    public  List<TopicWordModel> getWords(String topic, String pageNo, String pageSize) throws Exception {
-        List<TopicWordModel> twlist = topicWordRepository.findAllByDeletedAndTopicName(0,topic);
-        //TODO:好像不需要排序
-        Integer pn = Integer.parseInt(pageNo);
-        Integer ps = Integer.parseInt(pageSize);
-        Integer start = ps * (pn - 1);
-        Integer end = ps * pn - 1;
-
-        List<TopicWordModel> result = new ArrayList<TopicWordModel>();
-        for(int i = 0; i < pn; i++)
-        {
-            result.add(twlist.get(start+i));
-            if (twlist.size() == start+i+1)
-                break;
-        }
-        return result;
+    public Page<TopicWordModel> getWords(String topic, Integer pageNo, Integer pageSize) throws Exception {
+        PageRequest pageRequest = new PageRequest(pageNo, pageSize);
+        Page<TopicWordModel> twList = topicWordRepository.findAllByDeletedAndTopicNameOrderByIdAsc(0, topic, pageRequest);
+        return twList;
+//        List<TopicWordModel> twlist = topicWordRepository.findAllByDeletedAndTopicName(0,topic);
+//        //TODO:好像不需要排序
+//        Integer pn = Integer.parseInt(pageNo);
+//        Integer ps = Integer.parseInt(pageSize);
+//        Integer start = ps * (pn - 1);
+//        Integer end = ps * pn - 1;
+//
+//        List<TopicWordModel> result = new ArrayList<TopicWordModel>();
+//        for(int i = 0; i < pn; i++)
+//        {
+//            result.add(twlist.get(start+i));
+//            if (twlist.size() == start+i+1)
+//                break;
+//        }
+//        return result;
     }
 
     public List<MusicEnglishModel> getEnglishMusic() throws Exception{

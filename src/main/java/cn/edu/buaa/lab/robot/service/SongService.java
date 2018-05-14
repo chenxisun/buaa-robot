@@ -5,6 +5,8 @@ import cn.edu.buaa.lab.robot.repository.MusicRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,20 +30,24 @@ public class SongService {
 //        return topics;
 //    }
 
-    public List<MusicModel> getList(String topic, String pageNo, String pageSize){
-        List<MusicModel> mlist = musicRepository.findByDeleted(0);
-        Integer pn = Integer.parseInt(pageNo);
-        Integer ps = Integer.parseInt(pageSize);
-        Integer start = ps * (pn - 1);
-        Integer end = ps * pn - 1;
-        List<MusicModel> result = new ArrayList<MusicModel>();
-        for(int i = 0; i < pn; i++)
-        {
-            result.add(mlist.get(start+i));
-            if (mlist.size() == start+i+1)
-                break;
-        }
-        return result;
+    public Page<MusicModel> getList(String topic, Integer pageNo, Integer pageSize) {
+        PageRequest pageRequest = new PageRequest(pageNo, pageSize);
+        Page<MusicModel> muList = musicRepository.findAllByDeletedOrderByIdAsc(0, pageRequest);
+        return muList;
+
+//        List<MusicModel> mlist = musicRepository.findByDeleted(0);
+//        Integer pn = Integer.parseInt(pageNo);
+//        Integer ps = Integer.parseInt(pageSize);
+//        Integer start = ps * (pn - 1);
+//        Integer end = ps * pn - 1;
+//        List<MusicModel> result = new ArrayList<MusicModel>();
+//        for(int i = 0; i < pn; i++)
+//        {
+//            result.add(mlist.get(start+i));
+//            if (mlist.size() == start+i+1)
+//                break;
+//        }
+//        return result;
 //        if (topic.length() == 0)
 //            return null;
 //        Integer pn = Integer.parseInt(pageNo);

@@ -18,8 +18,8 @@ public class StoryController {
 
     @GetMapping("/list")
     public ResponseEntity<?> list(@RequestParam(value = "topic", defaultValue = "") final String topic,
-                                  @RequestParam(value = "pageNo", defaultValue = "") final String pageNo,
-                                  @RequestParam(value = "pageSize", defaultValue = "") final String pageSize
+                                  @RequestParam(value = "pageNo", defaultValue = "0") final Integer pageNo,
+                                  @RequestParam(value = "pageSize", defaultValue = "10") final Integer pageSize
     ) throws Exception {
 //        StoryService ss = new StoryService();
         return new ResponseEntity<>(storyService.getList(topic,pageNo,pageSize), HttpStatus.OK);

@@ -22,8 +22,8 @@ public class EnglishController {
 
     @GetMapping("/words/list")
     public ResponseEntity<?> wordList(@RequestParam(value = "topic", defaultValue = "") final String topic,
-                                      @RequestParam(value = "pageNo", defaultValue = "") final String pageNo,
-                                      @RequestParam(value = "pageSize", defaultValue = "") final String pageSize
+                                      @RequestParam(value = "pageNo", defaultValue = "0") final Integer pageNo,
+                                      @RequestParam(value = "pageSize", defaultValue = "10") final Integer pageSize
     ) throws Exception {
 //        EnglishService es = new EnglishService();
         return new ResponseEntity<>(englishService.getWords(topic,pageNo,pageSize), HttpStatus.OK);
