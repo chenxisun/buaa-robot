@@ -28,7 +28,7 @@ public class WeatherController {
     public ResponseEntity<?> list(@PathVariable final String date, @PathVariable final String city) throws
             Exception {
         String content = weatherService.getWeatherByDateAndCity(date, city);
-        String path = weatherService.getVoice(Status.input);
+        String path = weatherService.getVoice(content);
         Map<String ,String > result = new HashMap<>();
         result.put("result", content);
         result.put("voicePath",path);

@@ -30,7 +30,7 @@ public class TranslateController {
         Map<String, Object> map = new HashMap<String, Object>();
         map = gson.fromJson(jsonString, map.getClass());
         ArrayList<String> as = (ArrayList<String>) map.get("translation");
-        String path = translateService.getVoice(Status.input);
+        String path = translateService.getVoice(word);
         Map<String ,String > result = new HashMap<>();
         result.put("result", jsonString);
         result.put("voicePath",path);

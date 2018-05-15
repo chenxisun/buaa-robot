@@ -5,10 +5,10 @@ import cn.edu.buaa.lab.robot.common.util.KedaVoiceUtils;
 import java.util.Random;
 
 public class Recommend {
-    public static String changeToQuestion() {
+    public static String changeToQuestion(StatusPerRobot spr) {
         Random random = new Random();
-        Status.recommendIndex = Word.question_valid[random.nextInt(144)];
-        String answer_str = Word.mName.get(Status.recommendIndex);
+        spr.recommendIndex = Word.question_valid[random.nextInt(144)];
+        String answer_str = Word.mName.get(spr.recommendIndex);
         String ss = "我给你讲" + answer_str + "吧，好不好？";
 
         String name = "";
@@ -23,10 +23,10 @@ public class Recommend {
         return path;
     }
 
-    public static String changeToSong() {
+    public static String changeToSong(StatusPerRobot spr) {
         Random random = new Random();
-        Status.recommendIndex = random.nextInt(100) + 201;
-        String answer_str = Word.mName.get(Status.recommendIndex);
+        spr.recommendIndex = random.nextInt(100) + 201;
+        String answer_str = Word.mName.get(spr.recommendIndex);
         String ss = "我给你唱" + answer_str + "吧，好不好？";
 
         String name = "";
@@ -41,10 +41,10 @@ public class Recommend {
         return path;
     }
 
-    public static String changeToStory() {
+    public static String changeToStory(StatusPerRobot spr) {
         Random random = new Random();
-        Status.recommendIndex = random.nextInt(100)+ 301;
-        String answer_str = Word.mName.get(Status.recommendIndex);
+        spr.recommendIndex = random.nextInt(100)+ 301;
+        String answer_str = Word.mName.get(spr.recommendIndex);
         String ss = "我给你讲" + answer_str + "的故事吧，好不好？";
 
         String name = "";

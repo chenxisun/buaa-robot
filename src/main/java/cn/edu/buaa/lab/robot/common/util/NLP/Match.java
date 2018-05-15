@@ -98,10 +98,10 @@ public class Match {
         return Status.RECOMMEND_STORY;
     }
 
-    public static int beibei()
+    public static int beibei(StatusPerRobot spr)
     {
         //Log l = Log();
-        String testLine = Status.input;
+        String testLine = spr.input;
 
         ArrayList<String> xiao = new ArrayList<String>();
         xiao.add("贝");
@@ -141,17 +141,17 @@ public class Match {
         }
         if (flag)
         {
-            Status.isSleep = false;
+            spr.isSleep = false;
             //l.WriteLog("#唤醒贝贝");
             return Status.WAKE;
         }
         return -1;
     }
 
-    public static int sleep()
+    public static int sleep(StatusPerRobot spr)
     {
         //Log l = Log();
-        String testLine = Status.input;
+        String testLine = spr.input;
 
         String s_sleep = "你去睡觉";
 
@@ -169,16 +169,16 @@ public class Match {
         }
         if (flag)
         {
-            Status.isSleep = true;
+            spr.isSleep = true;
             //l.WriteLog("#贝贝睡觉了");
-            Status.input = "";
+            spr.input = "";
             //Status.notMatchTime = 3;
             return Status.SLEEP;
         }
         return -1;
     }
 
-    public static boolean hasNo()
+    public static boolean hasNo(StatusPerRobot spr)
     {
         ArrayList<String> bu = new ArrayList<String>();
         bu.add("不");
@@ -187,14 +187,14 @@ public class Match {
         bu.add("布");
         bu.add("换");
 
-        int length1 = Status.input.length();
+        int length1 = spr.input.length();
         int length2 = bu.size();
         boolean no = false;
         for(int i = 0; i < length1; i++)
         {
             for(int j = 0; j < length2; j++)
             {
-                if (Status.input.charAt(i) == bu.get(j).charAt(0))
+                if (spr.input.charAt(i) == bu.get(j).charAt(0))
                 {
                     no = true;
                     break;
@@ -206,21 +206,21 @@ public class Match {
         return no;
     }
 
-    public static boolean isOK()
+    public static boolean isOK(StatusPerRobot spr)
     {
         ArrayList<String> ok = new ArrayList<String>();
         ok.add("好");
         ok.add("行");
         ok.add("可以");
 
-        int length1 = Status.input.length();
+        int length1 = spr.input.length();
         int length2 = ok.size();
         boolean o = false;
         for(int i = 0; i < length1; i++)
         {
             for(int j = 0; j < length2; j++)
             {
-                if (Status.input.charAt(i) == ok.get(j).charAt(0))
+                if (spr.input.charAt(i) == ok.get(j).charAt(0))
                 {
                     o = true;
                     break;
@@ -232,19 +232,19 @@ public class Match {
         return o;
     }
 
-    public static boolean silence()
+    public static boolean silence(StatusPerRobot spr)
     {
-        if (Status.input.length() == 0)//判断是否有结果（即是否有语音输入）
+        if (spr.input.length() == 0)//判断是否有结果（即是否有语音输入）
             return true;
         return false;
     }
 
-    public static boolean weather()
+    public static boolean weather(StatusPerRobot spr)
     {
         boolean f_weather = false;
-        for (int i = 0; i < Status.input.length()-1; i++)
+        for (int i = 0; i < spr.input.length()-1; i++)
         {
-            String tmp = Status.input.substring(i,i+2);
+            String tmp = spr.input.substring(i,i+2);
 //            for (String ii : Word.asWeatherAsk)
 //                if (ii.equals(tmp))
 //                    f_weather = true;
@@ -254,11 +254,11 @@ public class Match {
         if (!f_weather)
             return false;
 
-        Status.weather_city = "";//当前城市
+        spr.weather_city = "";//当前城市
 
-        for (int i = 0; i < Status.input.length()-1; i++)
+        for (int i = 0; i < spr.input.length()-1; i++)
         {
-            String tmp = Status.input.substring(i,i+2);
+            String tmp = spr.input.substring(i,i+2);
             for (int j = 0; j < Word.asWeatherTime.size(); j++)
             {
                 if (Word.asWeatherTime.get(j).equals(tmp))
@@ -266,83 +266,80 @@ public class Match {
                     switch(j)
                     {
                         case 0:
-                            Status.weather_time = -2;
+                            spr.weather_time = -2;
                             break;
                         case 1:
-                            Status.weather_time = -1;
+                            spr.weather_time = -1;
                             break;
                         case 2:
                         case 3:
-                            Status.weather_time = 0;
+                            spr.weather_time = 0;
                             break;
                         case 4:
-                            Status.weather_time = 1;
+                            spr.weather_time = 1;
                             break;
                         case 5:
-                            Status.weather_time = 2;
+                            spr.weather_time = 2;
                             break;
                     }
                     break;
                 }
             }
         }
-        for (int i = 0; i < Status.input.length(); i++)
+        for (int i = 0; i < spr.input.length(); i++)
         {
             for (int l = 2; l < 5; l++)
             {
-                int b = Math.min(i+l, Status.input.length());
-                String tmp = Status.input.substring(i,b);
+                int b = Math.min(i+l, spr.input.length());
+                String tmp = spr.input.substring(i,b);
                 if (Word.asWeatherCity.contains(tmp))
                 {
-                    Status.weather_city=tmp;
+                    spr.weather_city=tmp;
                     break;
                 }
             }
         }
-        //TODO:
-        Status.weather_time = 0;
-
-        if(Status.weather_time==-3)
+        if(spr.weather_time==-3)
             return false;
-        System.out.println(Status.weather_city+Status.weather_time);
+        System.out.println(spr.weather_city+spr.weather_time);
         return true;
     }
 
-    public static boolean translate()
+    public static boolean translate(StatusPerRobot spr)
     {
         String s = "用英语怎么说";
-        for (int i = 0; i < Status.input.length(); i++)
+        for (int i = 0; i < spr.input.length(); i++)
         {
-            String tmp = Status.input.substring(i,Status.input.length());
+            String tmp = spr.input.substring(i,spr.input.length());
             if (tmp.startsWith(s)) {
-                Status.input = Status.input.substring(0, i);
+                spr.input = spr.input.substring(0, i);
                 return true;
             }
         }
         return false;
     }
 
-    public static int match()
+    public static int match(StatusPerRobot spr)
     {
         int type = Status.LOW_MATCH;
         Pair<Integer,Float> p;
         ArrayList<ArrayList<Integer>> result1 = new ArrayList<ArrayList<Integer>>();//歌、故事
         ArrayList<ArrayList<Integer>> result2 = new ArrayList<ArrayList<Integer>>();//问题
 
-        ArrayList<ArrayList<Integer>> typeResult = SplitWords.GetSplitResult(Status.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
+        ArrayList<ArrayList<Integer>> typeResult = SplitWords.GetSplitResult(spr.input, Word.asTypeSet, Word.aaiTypeIndex);//计算type
         if (typeResult.size() != 0)//可能含有类型
             type = TypeInference(typeResult);//区分是歌还是故事或问题或英语
 
         if (type == Status.RECOMMEND_SONG)//匹配歌
-            result1 = SplitWords.GetSplitResult(Status.input, Word.asSongSet, Word.aaiSongIndex);
+            result1 = SplitWords.GetSplitResult(spr.input, Word.asSongSet, Word.aaiSongIndex);
         else if(type == Status.RECOMMEND_STORY)//匹配故事
-            result1 = SplitWords.GetSplitResult(Status.input, Word.asStorySet, Word.aaiStoryIndex);
+            result1 = SplitWords.GetSplitResult(spr.input, Word.asStorySet, Word.aaiStoryIndex);
         else if (type == Status.RECOMMEND_ENGLISH)
             return Status.RECOMMEND_ENGLISH;
 //        else if (type == Status.LOW_MATCH)
 //            type = Status.RECOMMEND_QUESTION;
 
-        result2 = SplitWords.GetSplitResult(Status.input, Word.asQuestionSet, Word.aaiQuestionIndex);
+        result2 = SplitWords.GetSplitResult(spr.input, Word.asQuestionSet, Word.aaiQuestionIndex);
 
         if (result1.size() == 0 && result2.size() == 0)//没有找到匹配内容
             return type;
@@ -378,41 +375,41 @@ public class Match {
         }
     }
 
-    public static int getNLPResult()
+    public static int getNLPResult(StatusPerRobot spr)
     {
         //判断是否有效
-        if (silence())
+        if (silence(spr))
             return Status.SILENCE;
 
-        if (Status.isSleep)
+        if (spr.isSleep)
             //判断是否是唤醒
-            if (beibei() == Status.WAKE)
+            if (beibei(spr) == Status.WAKE)
                 return Status.WAKE;
             else
                 return Status.SILENCE;
 
         //判断是否是让去睡觉
-        if(sleep() == Status.SLEEP)
+        if(sleep(spr) == Status.SLEEP)
             return Status.SLEEP;
 
         //判断是否是让翻译
-        if (translate())
+        if (translate(spr))
             return Status.TRANSLATE;
 
         //判断是否是询问天气
-        if (weather())
+        if (weather(spr))
             return Status.WEATHER;
 
         //判断是否是二次应答
-        if (Status.waitNext)
-            if (hasNo())
+        if (spr.waitNext)
+            if (hasNo(spr))
                 return Status.NO;
-            else if (isOK())
+            else if (isOK(spr))
                 return Status.OK;
             else
                 return Status.NO;
 
         //判断是否是完整匹配
-        return match();
+        return match(spr);
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public interface MusicRepository extends CrudRepository<MusicModel, Integer> {
     List<MusicModel> findByDeleted(Integer deleted);
 
-    Page<MusicModel> findAllByDeletedOrderByIdAsc(Integer deleted, Pageable pageable);
+    Page<MusicModel> findAllByDeletedAndTopicOrderByIdAsc(Integer deleted,String topic, Pageable pageable);
 
     List<MusicModel> findByDeletedAndOldIndex(Integer deleted, Integer oldIndex);
 }

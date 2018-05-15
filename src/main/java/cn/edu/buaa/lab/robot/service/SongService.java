@@ -32,7 +32,7 @@ public class SongService {
 
     public Page<MusicModel> getList(String topic, Integer pageNo, Integer pageSize) {
         PageRequest pageRequest = new PageRequest(pageNo, pageSize);
-        Page<MusicModel> muList = musicRepository.findAllByDeletedOrderByIdAsc(0, pageRequest);
+        Page<MusicModel> muList = musicRepository.findAllByDeletedAndTopicOrderByIdAsc(0, topic, pageRequest);
         return muList;
 
 //        List<MusicModel> mlist = musicRepository.findByDeleted(0);

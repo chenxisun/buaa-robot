@@ -12,6 +12,9 @@ public class MusicModel extends BaseModel {
     @Column(name = "old_index")
     private Integer oldIndex;
 
+    @Column(name = "topic")
+    private Integer topic;
+
     @Column(name = "name")
     private String name;
 
@@ -73,5 +76,13 @@ public class MusicModel extends BaseModel {
 
     public void setVideoPath(String videoPath) {
         this.videoPath = videoPath;
+    }
+
+    public Integer getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Integer topic) {
+        this.topic = topic;
     }
 }

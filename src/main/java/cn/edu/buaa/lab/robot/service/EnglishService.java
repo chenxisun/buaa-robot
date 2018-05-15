@@ -1,14 +1,9 @@
 package cn.edu.buaa.lab.robot.service;
 
-import cn.edu.buaa.lab.robot.common.util.HttpUtils;
-import cn.edu.buaa.lab.robot.model.MusicEnglishModel;
 import cn.edu.buaa.lab.robot.model.TopicModel;
 import cn.edu.buaa.lab.robot.model.TopicWordModel;
-import cn.edu.buaa.lab.robot.model.WeatherModel;
-import cn.edu.buaa.lab.robot.repository.MusicEnglishRepository;
 import cn.edu.buaa.lab.robot.repository.TopicRepository;
 import cn.edu.buaa.lab.robot.repository.TopicWordRepository;
-import cn.edu.buaa.lab.robot.repository.WeatherRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,8 +22,6 @@ public class EnglishService {
     private TopicRepository topicRepository;
     @Autowired
     private TopicWordRepository topicWordRepository;
-    @Autowired
-    private MusicEnglishRepository musicEnglishRepository;
 
     public List<TopicModel> getTopics() throws Exception {
         List<TopicModel> tlist = topicRepository.findAllByDeleted(0);
@@ -73,10 +65,6 @@ public class EnglishService {
 //        return result;
     }
 
-    public List<MusicEnglishModel> getEnglishMusic() throws Exception{
-        List<MusicEnglishModel> twlist = musicEnglishRepository.findByDeleted(0);
-        return twlist;
-    }
 
 //    public Map<String, Map<String, Object>> getList(String topic){
 //        if (topic.length() == 0)
