@@ -13,7 +13,7 @@ public class MusicModel extends BaseModel {
     private Integer oldIndex;
 
     @Column(name = "topic")
-    private Integer topic;
+    private String topic;
 
     @Column(name = "name")
     private String name;
@@ -78,11 +78,11 @@ public class MusicModel extends BaseModel {
         this.videoPath = videoPath;
     }
 
-    public Integer getTopic() {
+    public String getTopic() {
         return topic;
     }
 
-    public void setTopic(Integer topic) {
+    public void setTopic(String topic) {
         this.topic = topic;
     }
 }

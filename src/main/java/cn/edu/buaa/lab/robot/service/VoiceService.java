@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -117,7 +118,7 @@ public class VoiceService {
                     break;
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_QUESTION));
-                result.put("voicePath",outResourceUrl+"/question/"+Recommend.changeToQuestion(spr)+".wav");
+                result.put("voicePath",outResourceUrl+"/question/"+Recommend.changeToQuestion(spr));
                 result.put("content",String.valueOf(spr.recommendIndex));
                 break;
             case Status.RECOMMEND_SONG:
@@ -125,7 +126,7 @@ public class VoiceService {
                     break;
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_SONG));
-                result.put("voicePath",outResourceUrl+"/songs/voice/"+Recommend.changeToSong(spr)+".wav");
+                result.put("voicePath",outResourceUrl+"/songs/voice/"+Recommend.changeToSong(spr));
                 result.put("content",String.valueOf(spr.recommendIndex));
                 break;
             case Status.RECOMMEND_STORY:
@@ -133,7 +134,7 @@ public class VoiceService {
                     break;
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_STORY));
-                result.put("voicePath",outResourceUrl+"stories/voice"+Recommend.changeToStory(spr)+".wav");
+                result.put("voicePath",outResourceUrl+"stories/voice"+Recommend.changeToStory(spr));
                 result.put("content",String.valueOf(spr.recommendIndex));
                 break;
             default:

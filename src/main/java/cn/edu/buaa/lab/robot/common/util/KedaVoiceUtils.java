@@ -124,14 +124,14 @@ public class KedaVoiceUtils {
         mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100
         //3.开始合成
         //设置合成音频保存位置（可自定义保存位置），默认保存在“./tts_test.pcm”
-        mTts.synthesizeToUri(content, path,synthesizeToUriListener);
+        mTts.synthesizeToUri(content, "./tts_test.pcm",synthesizeToUriListener);
 
         //TODO:检索是否生成
-        File file = new File(path);
-        if(!file.exists())
+//        File file = new File(path);
+//        if(!file.exists())
             try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-        if(!file.exists())
-            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+//        if(!file.exists())
+//            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
     }
 
     public static void dictationByMicrophone()
