@@ -162,7 +162,7 @@ public class VoiceService {
             result.put("command",String.valueOf(Status.RECOMMEND_SONG));
             result.put("voicePath",outResourceUrl+"/songs/voice/"+String.valueOf(nlpResult)+".wav");
             result.put("voiceIndex",String.valueOf(nlpResult));
-            MusicModel tmp = songService.getMusicByIndex(spr.recommendIndex);
+            MusicModel tmp = songService.getMusicByIndex(nlpResult);
             result.put("forFangSheng_size",String.valueOf(tmp.getSize()));
             result.put("forFangSheng_time",String.valueOf(tmp.getTimeLength()));
         } else if (nlpResult >= 301 && nlpResult <= 400)//直接请求某个故事
@@ -170,7 +170,7 @@ public class VoiceService {
             result.put("command",String.valueOf(Status.RECOMMEND_STORY));
             result.put("voicePath",outResourceUrl+"/stories/voice/"+String.valueOf(nlpResult)+".wav");
             result.put("voiceIndex",String.valueOf(nlpResult));
-            StoryModel tmp = storyService.getStoryByIndex(spr.recommendIndex);
+            StoryModel tmp = storyService.getStoryByIndex(nlpResult);
             result.put("forFangSheng_size",String.valueOf(tmp.getSize()));
             result.put("forFangSheng_time",String.valueOf(tmp.getTimeLength()));
         }
