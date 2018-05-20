@@ -3,9 +3,9 @@ package cn.edu.buaa.lab.robot.common.util.NLP;
 public class StatusPerRobot {
 
     //每次要重置
-    public int recommendIndex = -1;
-    public int weather_time = -3;
-    public String weather_city = "";
+    public int recommendIndex;
+    public int weather_time;
+    public String weather_city;
     //以下需要每个机器单独发送状态
     public boolean isSleep = false;
     public String input = "";
@@ -14,7 +14,7 @@ public class StatusPerRobot {
     public StatusPerRobot(boolean isSleep, boolean waitNext,String input){
         this.recommendIndex = -1;
         this.weather_city = "";
-        this.weather_time = -3;
+        this.weather_time = 0;
         this.isSleep = isSleep;
         this.waitNext = waitNext;
         this.input = input;

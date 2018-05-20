@@ -1,6 +1,8 @@
 package cn.edu.buaa.lab.robot.service;
 
 import cn.edu.buaa.lab.robot.common.util.NLP.*;
+import cn.edu.buaa.lab.robot.model.MusicModel;
+import cn.edu.buaa.lab.robot.model.StoryModel;
 import cn.edu.buaa.lab.robot.repository.MusicRepository;
 import cn.edu.buaa.lab.robot.repository.QARepository;
 import cn.edu.buaa.lab.robot.repository.StoryRepository;
@@ -32,11 +34,11 @@ public class VoiceService {
     private WeatherService weatherService;
 
     @Autowired
-    private MusicRepository musicRepository;
+    private SongService songService;
+
     @Autowired
-    private StoryRepository storyRepository;
-    @Autowired
-    private QARepository qaRepository;
+    private StoryService storyService;
+
 
     private Integer getNLPResult(StatusPerRobot spr) throws Exception {
         if (Word.asStorySet == null)
@@ -56,6 +58,9 @@ public class VoiceService {
         result.put("command",String.valueOf(Status.SILENCE));
         result.put("voicePath","");
         result.put("content","");
+        result.put("voiceIndex","-1");
+        result.put("forFangSheng_size","");
+        result.put("forFangSheng_time","");
 
         switch (nlpResult)
         {
@@ -67,11 +72,11 @@ public class VoiceService {
                 result.put("voicePath",outResourceUrl+"/common/silence.wav");
                 break;
             case Status.NO://TODO:实际上应该问他想听什么问题、歌、故事
-                result.put("command","");
+                result.put("command",String.valueOf(Status.NO));
                 result.put("voicePath",outResourceUrl+"/common/what_do_you_want_to_talk.wav");
                 break;
             case Status.OK://TODO:这里不返回语音链接了，客户端应当保留之前推荐的语音链接和命令
-                result.put("command","OK");
+                result.put("command",String.valueOf(Status.OK));
                 break;
             case Status.WEATHER:
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -96,12 +101,12 @@ public class VoiceService {
                 voice += content;
                 result.put("command",String.valueOf(Status.WEATHER));
                 result.put("content",voice);
-                result.put("voicePath",outResourceUrl+""+weatherService.getVoice(voice));
+                //result.put("voicePath",outResourceUrl+""+weatherService.getVoice(voice));
                 break;
             case Status.TRANSLATE:
                 result.put("command",String.valueOf(Status.TRANSLATE));
                 result.put("content",translateService.getEnglish(spr.input));
-                result.put("voicePath",outResourceUrl+""+translateService.getVoice(spr.input));
+                //result.put("voicePath",outResourceUrl+""+translateService.getVoice(spr.input));
                 break;
             case Status.SLEEP:
                 result.put("command",String.valueOf(Status.SLEEP));
@@ -118,24 +123,31 @@ public class VoiceService {
                     break;
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_QUESTION));
-                result.put("voicePath",outResourceUrl+"/question/"+Recommend.changeToQuestion(spr));
-                result.put("content",String.valueOf(spr.recommendIndex));
+                result.put("content",String.valueOf(Recommend.changeToQuestion(spr)));
+                result.put("voiceIndex",String.valueOf(spr.recommendIndex));
                 break;
             case Status.RECOMMEND_SONG:
                 if (spr.recommendIndex != -1)
                     break;
+
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_SONG));
-                result.put("voicePath",outResourceUrl+"/songs/voice/"+Recommend.changeToSong(spr));
-                result.put("content",String.valueOf(spr.recommendIndex));
+                result.put("content",String.valueOf(Recommend.changeToSong(spr)));
+                result.put("voiceIndex",String.valueOf(spr.recommendIndex));
+                MusicModel musci_tmp = songService.getMusicByIndex(spr.recommendIndex);
+                result.put("forFangSheng_size",String.valueOf(musci_tmp.getSize()));
+                result.put("forFangSheng_time",String.valueOf(musci_tmp.getTimeLength()));
                 break;
             case Status.RECOMMEND_STORY:
                 if (spr.recommendIndex != -1)
                     break;
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_STORY));
-                result.put("voicePath",outResourceUrl+"stories/voice"+Recommend.changeToStory(spr));
-                result.put("content",String.valueOf(spr.recommendIndex));
+                result.put("content",String.valueOf(Recommend.changeToStory(spr)));
+                result.put("voiceIndex",String.valueOf(spr.recommendIndex));
+                StoryModel story_tmp = storyService.getStoryByIndex(spr.recommendIndex);
+                result.put("forFangSheng_size",String.valueOf(story_tmp.getSize()));
+                result.put("forFangSheng_time",String.valueOf(story_tmp.getTimeLength()));
                 break;
             default:
                 break;
@@ -143,18 +155,24 @@ public class VoiceService {
         if (nlpResult <= 200 && nlpResult >= 1)//直接请求某个问题
         {
             result.put("command",String.valueOf(Status.RECOMMEND_QUESTION));
-            result.put("voicePath",outResourceUrl+""+Recommend.changeToQuestion(spr));
-            result.put("content",String.valueOf(nlpResult));
+            result.put("voicePath",outResourceUrl+"/question/"+String.valueOf(nlpResult)+".wav");
+            result.put("voiceIndex",String.valueOf(nlpResult));
         } else if (nlpResult >= 201 && nlpResult <= 300)//直接请求某首歌
         {
             result.put("command",String.valueOf(Status.RECOMMEND_SONG));
-            result.put("voicePath",outResourceUrl+""+Recommend.changeToSong(spr));
-            result.put("content",String.valueOf(nlpResult));
+            result.put("voicePath",outResourceUrl+"/songs/voice/"+String.valueOf(nlpResult)+".wav");
+            result.put("voiceIndex",String.valueOf(nlpResult));
+            MusicModel tmp = songService.getMusicByIndex(spr.recommendIndex);
+            result.put("forFangSheng_size",String.valueOf(tmp.getSize()));
+            result.put("forFangSheng_time",String.valueOf(tmp.getTimeLength()));
         } else if (nlpResult >= 301 && nlpResult <= 400)//直接请求某个故事
         {
             result.put("command",String.valueOf(Status.RECOMMEND_STORY));
-            result.put("voicePath",outResourceUrl+""+Recommend.changeToStory(spr));
-            result.put("content",String.valueOf(nlpResult));
+            result.put("voicePath",outResourceUrl+"/stories/voice/"+String.valueOf(nlpResult)+".wav");
+            result.put("voiceIndex",String.valueOf(nlpResult));
+            StoryModel tmp = storyService.getStoryByIndex(spr.recommendIndex);
+            result.put("forFangSheng_size",String.valueOf(tmp.getSize()));
+            result.put("forFangSheng_time",String.valueOf(tmp.getTimeLength()));
         }
         return result;
     }

@@ -3,7 +3,7 @@ package cn.edu.buaa.lab.robot.service;
 import cn.edu.buaa.lab.robot.common.util.DateUtils;
 import cn.edu.buaa.lab.robot.common.util.GsonUtils;
 import cn.edu.buaa.lab.robot.common.util.HttpUtils;
-import cn.edu.buaa.lab.robot.common.util.KedaVoiceUtils;
+//import cn.edu.buaa.lab.robot.common.util.KedaVoiceUtils;
 import cn.edu.buaa.lab.robot.model.WeatherModel;
 import cn.edu.buaa.lab.robot.repository.WeatherRepository;
 import com.google.gson.Gson;
@@ -100,17 +100,17 @@ public class WeatherService {
         }
     }
 
-    public String getVoice(String input) throws Exception{
-
-        String name = "";
-        Random rand = new Random();
-        while(name.length() < 16)
-        {
-            int tmp = rand.nextInt(10000);
-            name+=String.valueOf(tmp);
-        }
-        name+=".pcm";
-        KedaVoiceUtils.generateAndSave(input,"/home/vsftp/smartbeibei/weatherVoice/"+name);
-        return "/weatherVoice/"+name;
-    }
+//    public String getVoice(String input) throws Exception{
+//
+//        String name = "";
+//        Random rand = new Random();
+//        while(name.length() < 16)
+//        {
+//            int tmp = rand.nextInt(10000);
+//            name+=String.valueOf(tmp);
+//        }
+//        name+=".pcm";
+//        KedaVoiceUtils.generateAndSave(input,"/home/vsftp/smartbeibei/weatherVoice/"+name);
+//        return "/weatherVoice/"+name;
+//    }
 }

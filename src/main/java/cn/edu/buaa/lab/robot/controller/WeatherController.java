@@ -28,10 +28,10 @@ public class WeatherController {
     public ResponseEntity<?> list(@PathVariable final String date, @PathVariable final String city) throws
             Exception {
         String content = weatherService.getWeatherByDateAndCity(date, city);
-        String path = weatherService.getVoice(content);
+        //String path = weatherService.getVoice(content);
         Map<String ,String > result = new HashMap<>();
         result.put("result", content);
-        result.put("voicePath",path);
+        //result.put("voicePath",path);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

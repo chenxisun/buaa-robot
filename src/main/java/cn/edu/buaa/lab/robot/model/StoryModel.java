@@ -26,6 +26,28 @@ public class StoryModel extends BaseModel {
     @Column(name = "video_path")
     private String videoPath;
 
+    @Column(name = "size")
+    private String size;
+
+    @Column(name = "time_length")
+    private String timeLength;
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getTimeLength() {
+        return timeLength;
+    }
+
+    public void setTimeLength(String timeLength) {
+        this.timeLength = timeLength;
+    }
+
     public Integer getOldIndex() {
         return oldIndex;
     }
