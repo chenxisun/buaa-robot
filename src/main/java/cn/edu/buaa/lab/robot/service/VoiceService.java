@@ -61,6 +61,7 @@ public class VoiceService {
         result.put("voiceIndex","-1");
         result.put("forFangSheng_size","");
         result.put("forFangSheng_time","");
+        result.put("forFangSheng_name","");
 
         switch (nlpResult)
         {
@@ -125,18 +126,20 @@ public class VoiceService {
                 result.put("command",String.valueOf(Status.RECOMMEND_QUESTION));
                 result.put("content",String.valueOf(Recommend.changeToQuestion(spr)));
                 result.put("voiceIndex",String.valueOf(spr.recommendIndex));
+                result.put("voicePath",outResourceUrl+"/question/"+String.valueOf(spr.recommendIndex)+".wav");
                 break;
             case Status.RECOMMEND_SONG:
                 if (spr.recommendIndex != -1)
                     break;
-
                 result.put("needWaitNext","YES");
                 result.put("command",String.valueOf(Status.RECOMMEND_SONG));
                 result.put("content",String.valueOf(Recommend.changeToSong(spr)));
                 result.put("voiceIndex",String.valueOf(spr.recommendIndex));
+                result.put("voicePath",outResourceUrl+"/songs/voice/"+String.valueOf(spr.recommendIndex)+".wav");
                 MusicModel musci_tmp = songService.getMusicByIndex(spr.recommendIndex);
                 result.put("forFangSheng_size",String.valueOf(musci_tmp.getSize()));
                 result.put("forFangSheng_time",String.valueOf(musci_tmp.getTimeLength()));
+                result.put("forFangSheng_name",String.valueOf(musci_tmp.getName()));
                 break;
             case Status.RECOMMEND_STORY:
                 if (spr.recommendIndex != -1)
@@ -145,9 +148,11 @@ public class VoiceService {
                 result.put("command",String.valueOf(Status.RECOMMEND_STORY));
                 result.put("content",String.valueOf(Recommend.changeToStory(spr)));
                 result.put("voiceIndex",String.valueOf(spr.recommendIndex));
+                result.put("voicePath",outResourceUrl+"/stories/voice/"+String.valueOf(spr.recommendIndex)+".wav");
                 StoryModel story_tmp = storyService.getStoryByIndex(spr.recommendIndex);
                 result.put("forFangSheng_size",String.valueOf(story_tmp.getSize()));
                 result.put("forFangSheng_time",String.valueOf(story_tmp.getTimeLength()));
+                result.put("forFangSheng_name",String.valueOf(story_tmp.getName()));
                 break;
             default:
                 break;
@@ -165,6 +170,7 @@ public class VoiceService {
             MusicModel tmp = songService.getMusicByIndex(nlpResult);
             result.put("forFangSheng_size",String.valueOf(tmp.getSize()));
             result.put("forFangSheng_time",String.valueOf(tmp.getTimeLength()));
+            result.put("forFangSheng_name",String.valueOf(tmp.getName()));
         } else if (nlpResult >= 301 && nlpResult <= 400)//直接请求某个故事
         {
             result.put("command",String.valueOf(Status.RECOMMEND_STORY));
@@ -173,6 +179,7 @@ public class VoiceService {
             StoryModel tmp = storyService.getStoryByIndex(nlpResult);
             result.put("forFangSheng_size",String.valueOf(tmp.getSize()));
             result.put("forFangSheng_time",String.valueOf(tmp.getTimeLength()));
+            result.put("forFangSheng_name",String.valueOf(tmp.getName()));
         }
         return result;
     }

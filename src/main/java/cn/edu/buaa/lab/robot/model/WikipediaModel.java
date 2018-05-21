@@ -23,6 +23,9 @@ public class WikipediaModel extends BaseModel {
 
     @Column(name = "img4_path")
     private String img4Path;
+    
+    @Column(name = "img5_path")
+    private String img5Path;
 
     @Column(name = "voice_path")
     private String voicePath;
@@ -65,6 +68,14 @@ public class WikipediaModel extends BaseModel {
 
     public void setImg4Path(String img4Path) {
         this.img4Path = img4Path;
+    }
+
+    public String getImg5Path() {
+        return img5Path;
+    }
+
+    public void setImg5Path(String img5Path) {
+        this.img5Path = img5Path;
     }
 
     public String getVoicePath() {
