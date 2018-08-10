@@ -10,10 +10,10 @@ spring:
       test-on-borrow: true
       validation-query: select 1 from dual
 
-    url: jdbc:mysql://10.137.17.24:3306/buaa_robot_db?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://10.137.37.41:3306/buaa_robot_db?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
 #    url: jdbc:mysql://192.168.251.170:3306/buaa_robot_db?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: myuser
-    password: mypassword
+    username: root
+    password: 1234
 
 #    username: robot
 #    password: 0000
@@ -24,4 +24,4 @@ spring:
 out:
   weatherUrl: http://wthrcdn.etouch.cn/weather_mini?city=
   translateUrl: http://fanyi.youdao.com/openapi.do?keyfrom=xinlei&key=759115437&type=data&doctype=json&version=1.1&q=
-  resourceUrl: http://47.94.165.157:8083
+  resourceUrl: http://47.94.223.2:8083

@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -43,9 +46,9 @@ public class WeatherService {
         date = date.trim();
         city = city.trim();
 
-        List<WeatherModel> wlist = weatherRepository.findAllByDeletedAndDateAndCity(0, date, city);
+        List<WeatherModel> wlist = weatherRepository.findAllByDeletedAndDateAndCity(0, date, new String(city.getBytes("UTF-8")));
         if (null == wlist || wlist.isEmpty()) {
-            wlist = weatherRepository.findAllByDeletedAndDateAndCityContains(0, date, city);
+            wlist = weatherRepository.findAllByDeletedAndDateAndCityContains(0, date, new String(city.getBytes("UTF-8")));
             if (null == wlist || wlist.isEmpty()) {
                 String url = outWeatherUrl + city;
                 String result = HttpUtils.get(url);
@@ -53,7 +56,8 @@ public class WeatherService {
                 // deal weather result
                 saveWeatherInfo(DateUtils.today(), result);
 
-                wlist = weatherRepository.findAllByDeletedAndDateAndCity(0, date, city);
+                wlist = weatherRepository.findAllByDeletedAndDateAndCity(0, date, new String(city.getBytes("UTF-8")));
+
                 if (null == wlist || wlist.isEmpty()) {
                     return "对不起，我没有听清楚。";
                 }
@@ -78,23 +82,33 @@ public class WeatherService {
     // date: 2018-05-10; src: {"data":{"yesterday":{"date":"9日星期三","high":"高温 25℃","fx":"东风","low":"低温 15℃","fl":"<![CDATA[<3级]]>","type":"晴"},"city":"苏州","aqi":"44","forecast":[{"date":"10日星期四","high":"高温 25℃","fengli":"<![CDATA[<3级]]>","low":"低温 15℃","fengxiang":"东风","type":"晴"},{"date":"11日星期五","high":"高温 24℃","fengli":"<![CDATA[3-4级]]>","low":"低温 17℃","fengxiang":"东南风","type":"多云"},{"date":"12日星期六","high":"高温 27℃","fengli":"<![CDATA[3-4级]]>","low":"低温 20℃","fengxiang":"东南风","type":"多云"},{"date":"13日星期天","high":"高温 29℃","fengli":"<![CDATA[3-4级]]>","low":"低温 22℃","fengxiang":"西南风","type":"雷阵雨"},{"date":"14日星期一","high":"高温 31℃","fengli":"<![CDATA[3-4级]]>","low":"低温 22℃","fengxiang":"北风","type":"多云"}],"ganmao":"各项气象条件适宜，无明显降温过程，发生感冒机率较低。","wendu":"14"},"status":1000,"desc":"OK"}
     private void saveWeatherInfo(String date, String src) {
         try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date localDate = new Date();
+            Calendar rightNow = Calendar.getInstance();
+            rightNow.setTime(localDate);
+            rightNow.add(Calendar.DAY_OF_YEAR,-1);
+
             Map weatherData = ((Map) GsonUtils.gToObject(src, Map.class).get("data"));
-            Map yesterdayMap = (Map) weatherData.get("yesterday");
-            yesterdayMap.put("fengli", yesterdayMap.get("fl"));
-            yesterdayMap.put("fengxiang", yesterdayMap.get("fx"));
+
+//            Map yesterdayMap = (Map) weatherData.get("yesterday");
+//            yesterdayMap.put("fengli", yesterdayMap.get("fl"));
+//            yesterdayMap.put("fengxiang", yesterdayMap.get("fx"));
             List<Map> forecastList = (List<Map>) weatherData.get("forecast");
             String city = (String) weatherData.get("city");
-            forecastList.add(yesterdayMap);
+            //forecastList.add(yesterdayMap);
             List<WeatherModel> wmList = new ArrayList<>(7);
             for (Map o : forecastList) {
+                rightNow.add(Calendar.DAY_OF_YEAR,1);
+                localDate=rightNow.getTime();
                 WeatherModel wm = new WeatherModel();
                 wm.setCity(city);
-                wm.setDate(DateUtils.toDate(date, (String) o.get("date")));
+                wm.setDate(sdf.format(localDate));
                 wm.setResult(GsonUtils.gToJson(o));
                 wmList.add(wm);
 //                weatherRepository.save(wm);
             }
             weatherRepository.save(wmList);
+
         } catch (Exception e) {
             logger.error(src, e);
         }
