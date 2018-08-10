@@ -40,10 +40,8 @@ public class SplitWords {
             for (; j < sWord.length(); j++)
             {
                 String sCharacter = sWord.substring(j);//求得这个子字符串的字符串
-                if (asSet.contains(sCharacter))
+                if (asSet.contains(sCharacter) && !asRecord.contains(sCharacter))
                 {
-                    if (asRecord.contains(sCharacter))
-                        continue;
                     asRecord.add(sCharacter);
                     aaiResult.add(aaiIndex.get(asSet.indexOf(sCharacter)));
                     len += sCharacter.length();
