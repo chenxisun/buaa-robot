@@ -1,6 +1,5 @@
 package cn.edu.buaa.lab.robot.controller;
 
-import cn.edu.buaa.lab.robot.service.SongService;
 import cn.edu.buaa.lab.robot.service.WikipediaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
