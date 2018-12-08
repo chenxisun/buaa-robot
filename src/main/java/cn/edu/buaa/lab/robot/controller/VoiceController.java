@@ -26,6 +26,7 @@ public class VoiceController {
                                   @RequestParam(value = "voiceInput", defaultValue = "") final String voiceInput
     ) throws Exception {
         String fileName="/home/vsftp/smartbeibei/log_for_fansheng.txt";
+//        String fileName="E:/doctorM/workspace/buaa-robot/src/main/resources/log_for_fansheng.txt";
         String fileEncode = System.getProperty("file.encoding");
         try{
             //使用这个构造函数时，如果存在kuka.txt文件，则直接往kuka.txt中追加字符串

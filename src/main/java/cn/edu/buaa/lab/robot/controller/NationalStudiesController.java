@@ -1,15 +1,9 @@
 package cn.edu.buaa.lab.robot.controller;
 
-import cn.edu.buaa.lab.robot.common.util.Constants;
 import cn.edu.buaa.lab.robot.model.NationalStudyModel;
-import cn.edu.buaa.lab.robot.service.TranslateService;
-import com.google.gson.Gson;
-import com.sun.xml.internal.fastinfoset.tools.FI_DOM_Or_XML_DOM_SAX_SAXEvent;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,9 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 国学controller
@@ -29,14 +21,12 @@ import java.util.Map;
 @RestController
 public class NationalStudiesController {
 
+    private static final String pathPre = "/home/vsftp/smartbeibei/";
     private static final String MP3_PATH = "/home/vsftp/smartbeibei/question/idiom/voice";
     private static final String IMG_PATH = "/home/vsftp/smartbeibei/question/idiom/img";
 
-    private static final List<NationalStudyModel> nationalStudyModels = parseMULU(new File(Constants.FILEPATH + "txt/mulu.txt"));
+    private static final List<NationalStudyModel> nationalStudyModels = parseMULU(new File(pathPre + "txt/mulu.txt"));
 
-
-    @Autowired
-    private TranslateService translateService;
 
     @GetMapping("/fileList")
     public ResponseEntity<?> list(){
@@ -44,7 +34,7 @@ public class NationalStudiesController {
     }
 
     public static void main(String[] args) {
-        List<NationalStudyModel> nationalStudyModels = parseMULU(new File(Constants.FILEPATH + "txt/mulu.txt"));
+        List<NationalStudyModel> nationalStudyModels = parseMULU(new File(pathPre + "txt/mulu.txt"));
         for(NationalStudyModel model: nationalStudyModels) {
             System.out.println(model);
         }
